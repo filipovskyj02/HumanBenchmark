@@ -14,3 +14,5 @@ global leaderboards.
 Select the user with the most played games / Who set the global highscore the highest number of times.
 
 
+## Dislamer
+Heavily inspired by https://humanbenchmark.com/
