@@ -18,6 +18,10 @@ The client side will be realized as a dynamic website using html/css. Usage of a
 ## Complex database query
 Select the user with the most played games / with the highest amount of medals
 
+## Complex operation
+- Sending a score (Insert into db, read the highscore, if new score is higher then update the highscore)
+- Comparison to other players (Find the highscore of every player, calculate percentile, show it to the player)
+- Creating an account / changing a password (Check if email/ username is already present then create. Compare hashed password before updating)
 
 ## Disclaimer
 Heavily inspired by https://humanbenchmark.com/
