@@ -13,6 +13,9 @@ The client side will be realized as a dynamic website using html/css. Usage of a
 
 
 ## Database schema
+<small>Highscore private key is a combination of coresponding game and user private keys and that combination is unique, which is what we expect from a user and his highscore for a single game.</small>
+
+
 <img width=800% height=*00% src="./images/dbschema.png">
 
 ## Complex database query
