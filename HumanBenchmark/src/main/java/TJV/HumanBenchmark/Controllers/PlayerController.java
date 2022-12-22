@@ -1,11 +1,10 @@
 package TJV.HumanBenchmark.Controllers;
 
 import TJV.HumanBenchmark.Model.Player;
+import TJV.HumanBenchmark.Repository.CustomPlayerRepo;
 import TJV.HumanBenchmark.Repository.PlayerRepo;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/player")
@@ -19,5 +18,12 @@ public class PlayerController {
     public ResponseEntity getAll(){
         return ResponseEntity.ok(this.playerRepo.findAll());
     }
+
+    @PostMapping("/register")
+    public Player registerPlayer(@RequestBody Player player) {
+        return playerRepo.register(player,playerRepo);
+    }
+
+
 
 };
