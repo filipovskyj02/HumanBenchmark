@@ -20,6 +20,7 @@ public class Player {
 
 
     private int maxScore = 0;
+    @Nullable
     @OneToMany
     private List<Score> scores = new ArrayList<Score>();
 

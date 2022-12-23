@@ -15,6 +15,7 @@ public class PlayerRepoImpl implements CustomPlayerRepo {
     @Autowired
     @Lazy
     PlayerRepo playerRepo;
+    @Override
     public Player register(Player player) {
 
         List<Player> a = playerRepo.findAll();
