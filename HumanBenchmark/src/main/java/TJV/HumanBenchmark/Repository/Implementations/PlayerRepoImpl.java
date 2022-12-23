@@ -5,12 +5,17 @@ import TJV.HumanBenchmark.Repository.CustomPlayerRepo;
 import TJV.HumanBenchmark.Repository.PlayerRepo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
 
 import java.util.List;
 
 public class PlayerRepoImpl implements CustomPlayerRepo {
-
-    public Player register(Player player,PlayerRepo playerRepo) {
+    @Autowired
+    @Lazy
+    PlayerRepo playerRepo;
+    public Player register(Player player) {
 
         List<Player> a = playerRepo.findAll();
         for (Player p : a) {

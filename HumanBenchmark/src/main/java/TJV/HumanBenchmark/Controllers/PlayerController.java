@@ -21,9 +21,7 @@ public class PlayerController {
 
     @PostMapping("/register")
     public Player registerPlayer(@RequestBody Player player) {
-        return playerRepo.register(player,playerRepo);
+        return playerRepo.register(player);
     }
+}
 
-
-
-};
