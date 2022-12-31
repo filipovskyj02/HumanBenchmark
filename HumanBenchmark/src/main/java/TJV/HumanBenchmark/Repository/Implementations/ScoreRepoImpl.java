@@ -1,6 +1,7 @@
 package TJV.HumanBenchmark.Repository.Implementations;
 
 import TJV.HumanBenchmark.DTOs.ScoreDTO;
+import TJV.HumanBenchmark.MaxScoreRepo;
 import TJV.HumanBenchmark.Model.Game;
 import TJV.HumanBenchmark.Model.Player;
 import TJV.HumanBenchmark.Model.Score;
@@ -18,6 +19,10 @@ public class ScoreRepoImpl implements CustomScoreRepo {
     @Autowired
     @Lazy
     ScoreRepo scoreRepo;
+
+    @Autowired
+    @Lazy
+    MaxScoreRepo maxScoreRepo;
     @Autowired
     @Lazy
     GameRepo gameRepo;
@@ -28,20 +33,24 @@ public class ScoreRepoImpl implements CustomScoreRepo {
         Optional<Player> player = playerRepo.findById(scoreDTO.getId_user());
         System.out.println(scoreDTO.getId_user() + " JE USER ID");
         if (!player.isPresent()) return ResponseEntity.badRequest().body("User not present!");
-        if (player.get().getMaxScore() < scoreDTO.getScore()) {
-            player.get().setMaxScore(scoreDTO.getScore());
-        }
+
         Optional<Game> game = gameRepo.findById(scoreDTO.getId_game());
         System.out.println(scoreDTO.getId_game() + " JE GAME ID");
         if (!game.isPresent()) return ResponseEntity.badRequest().body("Game not present !");
         Score fullScore = new Score(scoreDTO.getScore(),player.get(),game.get());
+
         player.get().addScore(fullScore);
         game.get().addScore(fullScore);
         scoreRepo.save(fullScore);
+        /*
+        if (maxScoreRepo.checkScore(fullScore,player.get(),game.get()) == 1)
+            return ResponseEntity.ok("Highscore set !");
+        */
 
 
         return ResponseEntity.ok("Score added !");
         }
+
 
     }
 

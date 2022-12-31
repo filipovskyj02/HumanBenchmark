@@ -1,5 +1,6 @@
 package TJV.HumanBenchmark.Model;
 
+import TJV.HumanBenchmark.MaxScore;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
@@ -18,6 +19,7 @@ public class Game {
     @Nullable
     @OneToMany
     private List<Score> scores = new ArrayList<Score>();
+
 
     public long getId_game() {
         return id_game;

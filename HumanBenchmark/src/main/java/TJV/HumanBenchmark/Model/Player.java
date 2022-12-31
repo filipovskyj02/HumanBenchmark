@@ -1,5 +1,6 @@
 package TJV.HumanBenchmark.Model;
 
+import TJV.HumanBenchmark.MaxScore;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
@@ -19,10 +20,12 @@ public class Player {
 
 
 
-    private int maxScore = 0;
+
     @Nullable
     @OneToMany
     private List<Score> scores = new ArrayList<Score>();
+
+
 
 
    public Player(String name, String email, String password,String race){
@@ -79,12 +82,6 @@ public class Player {
     public void setId_user(long id_user) {
         this.id_user = id_user;
     }
-    public int getMaxScore() {
-        return maxScore;
-    }
 
-    public void setMaxScore(int maxScore) {
-        this.maxScore = maxScore;
-    }
     public Player() {}
 }
