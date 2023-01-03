@@ -42,7 +42,7 @@ public class MedalRepoImpl implements CustomMedalRepo {
        Optional<Medal> medal =  medalRepo.findById(medalIdDescDTO.getId_medal());
        if (medal.isEmpty()) return Optional.empty();
        Medal medalRef = medalRepo.getReferenceById(medalIdDescDTO.getId_medal());
-       medalRef.setDescription(medalRef.getDescription());
+       medalRef.setDescription(medalIdDescDTO.getDescription());
        medalRepo.flush();
        return Optional.of(medalRef);
 

@@ -2,12 +2,8 @@ package TJV.HumanBenchmark.DTOs;
 
 public class MaxScoreDTO {
     long id_player;
+    long id_game;
 
-    public MaxScoreDTO(long id_player, long id_game) {
-        this.id_player = id_player;
-        this.id_game = id_game;
-    }
-    MaxScoreDTO(){}
     public long getId_player() {
         return id_player;
     }
@@ -23,6 +19,4 @@ public class MaxScoreDTO {
     public void setId_game(long id_game) {
         this.id_game = id_game;
     }
-
-    long id_game;
 }

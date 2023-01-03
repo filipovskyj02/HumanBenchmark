@@ -25,7 +25,7 @@ public class MedalController {
     ResponseEntity getAll(){
         Optional<List<Medal>> medals = medalRepo.getAllMedals();
         if (medals.isEmpty()) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok().body(medals);
+        return ResponseEntity.ok().body(medals.get());
     }
     @PostMapping
     ResponseEntity addMedal(@RequestBody MedalDescDTO medalDescDTO){
@@ -44,6 +44,6 @@ public class MedalController {
     ResponseEntity updateMedal(@RequestBody MedalIdDescDTO medalIdDescDTO){
         Optional<Medal> medal = medalRepo.updateMedal(medalIdDescDTO);
         if (medal.isEmpty()) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok().body(medal);
+        return ResponseEntity.ok().body(medal.get());
     }
 }

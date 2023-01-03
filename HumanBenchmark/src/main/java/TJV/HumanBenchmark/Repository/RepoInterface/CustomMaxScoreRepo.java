@@ -7,10 +7,10 @@ import TJV.HumanBenchmark.Model.Player;
 import TJV.HumanBenchmark.Model.Score;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Optional;
+
 public interface CustomMaxScoreRepo {
+    int getUserMaxScore(MaxScoreDTO maxScoreDTO);
 
 
-    ResponseEntity getMaxScoreForGame(GameDTO gameDTO);
-    ResponseEntity getMaxScoreById(MaxScoreDTO maxScoreDTO);
-    int checkScore(Score fullScore, Player player, Game game);
 }

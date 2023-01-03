@@ -29,7 +29,7 @@ public class GameController {
     ResponseEntity getAllGames(){
         Optional<List<Game>> games = gameRepo.getAllGames();
         if (games.isEmpty())  return ResponseEntity.notFound().build();
-        return ResponseEntity.ok().body(games);
+        return ResponseEntity.ok().body(games.get());
     }
     @DeleteMapping
     ResponseEntity deleteGame(@RequestBody GameByIdDTO gameByIdDTO){

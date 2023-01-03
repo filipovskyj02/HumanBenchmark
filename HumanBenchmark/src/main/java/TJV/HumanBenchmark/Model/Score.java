@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 @Table(name = "scores")
@@ -29,7 +30,8 @@ public class Score {
 
     public Score(int score,Player player,Game gem){
         this.score = score;
-        this.date = LocalDateTime.now();
+        this.date = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+
         this.player = player;
         this.game = gem;
     }
