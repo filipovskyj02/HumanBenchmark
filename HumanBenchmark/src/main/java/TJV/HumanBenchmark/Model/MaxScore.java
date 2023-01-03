@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Maxscores")
+@Table(name = "maxscores")
 public class MaxScore {
         @Embeddable
         public static class MaxScoreId implements Serializable {

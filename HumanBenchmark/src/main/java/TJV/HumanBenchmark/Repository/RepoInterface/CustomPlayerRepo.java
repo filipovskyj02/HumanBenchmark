@@ -1,4 +1,4 @@
-package TJV.HumanBenchmark.Repository;
+package TJV.HumanBenchmark.Repository.RepoInterface;
 
 import TJV.HumanBenchmark.Model.Player;
 

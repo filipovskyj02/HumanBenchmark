@@ -1,7 +1,6 @@
 package TJV.HumanBenchmark.Controllers;
 
 import TJV.HumanBenchmark.Model.Player;
-import TJV.HumanBenchmark.Repository.CustomPlayerRepo;
 import TJV.HumanBenchmark.Repository.PlayerRepo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

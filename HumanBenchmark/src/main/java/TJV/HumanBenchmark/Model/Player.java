@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.TreeSet;
 
 @Entity
-@Table(name = "Players")
+@Table(name = "players")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -34,7 +34,9 @@ public class Player {
     @OneToMany
     private List<Score> scores = new ArrayList<Score>();
 
-
+    @Nullable
+    @OneToMany
+    private List<Medal> medals = new ArrayList<Medal>();
 
 
    public Player(String name, String email, String password,String race){

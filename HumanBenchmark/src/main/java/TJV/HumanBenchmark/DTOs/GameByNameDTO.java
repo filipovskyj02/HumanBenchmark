@@ -1,15 +1,15 @@
 package TJV.HumanBenchmark.DTOs;
 
-public class NewGameDTO {
+public class GameByNameDTO {
     private String name;
     public String getName() {
         return name;
     }
 
-    public NewGameDTO(String name) {
+    public GameByNameDTO(String name) {
         this.name = name;
     }
-    public NewGameDTO(){}
+    public GameByNameDTO(){}
 
     public void setName(String name) {
         this.name = name;

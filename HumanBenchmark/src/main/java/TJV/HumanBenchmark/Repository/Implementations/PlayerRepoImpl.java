@@ -1,12 +1,9 @@
 package TJV.HumanBenchmark.Repository.Implementations;
 
 import TJV.HumanBenchmark.Model.Player;
-import TJV.HumanBenchmark.Repository.CustomPlayerRepo;
+import TJV.HumanBenchmark.Repository.RepoInterface.CustomPlayerRepo;
 import TJV.HumanBenchmark.Repository.PlayerRepo;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
 
 import java.util.List;

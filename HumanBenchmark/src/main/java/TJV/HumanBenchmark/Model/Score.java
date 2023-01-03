@@ -6,7 +6,7 @@ import org.springframework.lang.NonNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Scores")
+@Table(name = "scores")
 public class Score {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -1,38 +1,47 @@
 package TJV.HumanBenchmark.Repository.Implementations;
 
-import TJV.HumanBenchmark.DTOs.NewGameDTO;
+import TJV.HumanBenchmark.DTOs.GameByIdDTO;
+import TJV.HumanBenchmark.DTOs.GameByNameDTO;
+import TJV.HumanBenchmark.DTOs.GameIdNameDTO;
 import TJV.HumanBenchmark.Model.Game;
-import TJV.HumanBenchmark.Repository.CustomGameRepo;
+import TJV.HumanBenchmark.Repository.RepoInterface.CustomGameRepo;
 import TJV.HumanBenchmark.Repository.GameRepo;
-import TJV.HumanBenchmark.Repository.PlayerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class GameRepoImpl implements CustomGameRepo {
     @Autowired
     @Lazy
     GameRepo gameRepo;
     @Override
-    public ResponseEntity addGame(NewGameDTO newGameDTO){
-        if (gameRepo.count() > 0){
-            for(Game g: gameRepo.findAll()){
-                if ((g.getName().equals(newGameDTO.getName()))){
-                    return ResponseEntity.badRequest().body("Game already present !");
-                }
-            }
-        }
-        Game newGame = new Game(newGameDTO.getName());
-        gameRepo.save(newGame);
-        return ResponseEntity.ok("Game added !");
+    public Optional<Game> addGame(GameByNameDTO gameByNameDTO) {
+        if (gameRepo.findByname(gameByNameDTO.getName()).isPresent()) return Optional.empty();
+        Game newGame = new Game(gameByNameDTO.getName());
+        return Optional.of(gameRepo.save(newGame));
     }
     @Override
-    public ResponseEntity getAllGames(){
-        if (gameRepo.count() == 0) return ResponseEntity.badRequest().body("There are no games in the db");
-        else return ResponseEntity.ok(gameRepo.findAll());
+    public Optional<List<Game>> getAllGames(){
+        if (gameRepo.count() == 0) return Optional.empty();
+        else return Optional.of(gameRepo.findAll());
     }
+    @Override
+    public Boolean deleteGame(GameByIdDTO gameByIdDTO){
+        if (!gameRepo.existsById(gameByIdDTO.getId_game())) return false;
+        gameRepo.deleteById(gameByIdDTO.getId_game());
+        return true;
+
+    }
+    @Override
+    public Optional<Game> fixGameName(GameIdNameDTO gameIdNameDTO){
+        if (!gameRepo.existsById(gameIdNameDTO.getId_game())) return Optional.empty();
+        Game game = gameRepo.getReferenceById(gameIdNameDTO.getId_game());
+        game.setName(gameIdNameDTO.getName());
+        gameRepo.flush();
+        return Optional.of(game);
+    }
+
 
 }

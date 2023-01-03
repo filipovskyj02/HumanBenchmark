@@ -6,7 +6,7 @@ import TJV.HumanBenchmark.Model.Game;
 import TJV.HumanBenchmark.Model.MaxScore;
 import TJV.HumanBenchmark.Model.Player;
 import TJV.HumanBenchmark.Model.Score;
-import TJV.HumanBenchmark.Repository.CustomMaxScoreRepo;
+import TJV.HumanBenchmark.Repository.RepoInterface.CustomMaxScoreRepo;
 import TJV.HumanBenchmark.Repository.MaxScoreRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;

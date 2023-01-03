@@ -1,8 +1,7 @@
-package TJV.HumanBenchmark.Repository;
+package TJV.HumanBenchmark.Repository.RepoInterface;
 
 import TJV.HumanBenchmark.DTOs.GameDTO;
 import TJV.HumanBenchmark.DTOs.MaxScoreDTO;
-import TJV.HumanBenchmark.DTOs.NewGameDTO;
 import TJV.HumanBenchmark.Model.Game;
 import TJV.HumanBenchmark.Model.Player;
 import TJV.HumanBenchmark.Model.Score;
