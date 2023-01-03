@@ -1,6 +1,5 @@
 package TJV.HumanBenchmark.Model;
 
-import TJV.HumanBenchmark.MaxScore;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
@@ -9,17 +8,27 @@ import java.util.List;
 import java.util.TreeSet;
 
 @Entity
+@Table(name = "Players")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id_user;
+    @Column(name = "id_player", unique = true, updatable = false)
+    private long id_player;
+    @Column(name = "name")
     private String name;
+    @Column(name = "email",unique = true)
     private String email;
+    @Column(name = "password")
     private String password;
-    private String race;
 
 
+    public long getId_player() {
+        return id_player;
+    }
 
+    public void setId_player(long id_player) {
+        this.id_player = id_player;
+    }
 
     @Nullable
     @OneToMany
@@ -32,7 +41,6 @@ public class Player {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.race= race;
     }
 
     public List<Score> getScores() {
@@ -47,9 +55,6 @@ public class Player {
         return name;
     }
 
-    public long getId_user() {
-        return id_user;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -67,21 +72,11 @@ public class Player {
         return password;
     }
 
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
-    }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setId_user(long id_user) {
-        this.id_user = id_user;
-    }
 
     public Player() {}
 }

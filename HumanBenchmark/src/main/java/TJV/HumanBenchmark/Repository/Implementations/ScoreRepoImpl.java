@@ -1,14 +1,10 @@
 package TJV.HumanBenchmark.Repository.Implementations;
 
 import TJV.HumanBenchmark.DTOs.ScoreDTO;
-import TJV.HumanBenchmark.MaxScoreRepo;
 import TJV.HumanBenchmark.Model.Game;
 import TJV.HumanBenchmark.Model.Player;
 import TJV.HumanBenchmark.Model.Score;
-import TJV.HumanBenchmark.Repository.CustomScoreRepo;
-import TJV.HumanBenchmark.Repository.GameRepo;
-import TJV.HumanBenchmark.Repository.PlayerRepo;
-import TJV.HumanBenchmark.Repository.ScoreRepo;
+import TJV.HumanBenchmark.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -19,19 +15,20 @@ public class ScoreRepoImpl implements CustomScoreRepo {
     @Autowired
     @Lazy
     ScoreRepo scoreRepo;
-
     @Autowired
     @Lazy
     MaxScoreRepo maxScoreRepo;
+
     @Autowired
     @Lazy
     GameRepo gameRepo;
     @Autowired
+    @Lazy
     PlayerRepo playerRepo;
     @Override
     public ResponseEntity addScore (ScoreDTO scoreDTO)  {
-        Optional<Player> player = playerRepo.findById(scoreDTO.getId_user());
-        System.out.println(scoreDTO.getId_user() + " JE USER ID");
+        Optional<Player> player = playerRepo.findById(scoreDTO.getId_player());
+        System.out.println(scoreDTO.getId_player() + " JE USER ID");
         if (!player.isPresent()) return ResponseEntity.badRequest().body("User not present!");
 
         Optional<Game> game = gameRepo.findById(scoreDTO.getId_game());
@@ -42,10 +39,10 @@ public class ScoreRepoImpl implements CustomScoreRepo {
         player.get().addScore(fullScore);
         game.get().addScore(fullScore);
         scoreRepo.save(fullScore);
-        /*
+
         if (maxScoreRepo.checkScore(fullScore,player.get(),game.get()) == 1)
             return ResponseEntity.ok("Highscore set !");
-        */
+
 
 
         return ResponseEntity.ok("Score added !");

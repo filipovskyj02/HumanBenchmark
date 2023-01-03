@@ -1,6 +1,6 @@
 package TJV.HumanBenchmark.Model;
 
-import TJV.HumanBenchmark.MaxScore;
+
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
@@ -8,15 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "Games")
 public class Game {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id_game", unique = true, updatable = false)
     private long id_game;
+    @Column(name = "name")
     private String name;
 
-    @Nullable
+    @Column(name = "scores", nullable = true)
     @OneToMany
     private List<Score> scores = new ArrayList<Score>();
 
