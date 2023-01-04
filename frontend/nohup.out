@@ -93,3 +93,19 @@ console.error: BroadcastService:
     remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:334:13
 
 JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+1672815096200 main info "Quitting app"
+[371091:0104/075136.232650:ERROR:zygote_communication_linux.cc(276)] Failed to send GetTerminationStatus message to zygote
+[371091:0104/075136.237621:ERROR:network_service_instance_impl.cc(978)] Network service crashed, restarting service.
+[371091:0104/075136.248874:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[371091:0104/075136.253328:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[371091:0104/075136.255242:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[371091:0104/075136.256156:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[371091:0104/075136.256770:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[371091:0104/075136.257195:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[371091:0104/075136.260081:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[371091:0104/075136.260838:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[371091:0104/075136.261481:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[371091:0104/075136.261499:FATAL:gpu_data_manager_impl_private.cc(447)] GPU process isn't usable. Goodbye.
+[0104/075136.268899:ERROR:elf_dynamic_array_reader.h(64)] tag not found
+[0104/075136.269206:ERROR:elf_dynamic_array_reader.h(64)] tag not found
+[0104/075136.269463:ERROR:elf_dynamic_array_reader.h(64)] tag not found

@@ -1,5 +1,6 @@
 package TJV.HumanBenchmark.Controllers;
 
+import TJV.HumanBenchmark.DTOs.OutPlayerLoginDTO;
 import TJV.HumanBenchmark.DTOs.PlayerDeleteDTO;
 import TJV.HumanBenchmark.DTOs.PlayerLoginDTO;
 import TJV.HumanBenchmark.DTOs.RegisterPlayerDTO;
@@ -31,7 +32,8 @@ public class PlayerController {
     public ResponseEntity loginPlayer(@RequestBody PlayerLoginDTO loginDTO){
         Optional<Player> player = playerRepo.loginPlayer(loginDTO);
         if (player.isEmpty()) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok().body(player.get());
+        OutPlayerLoginDTO res = new OutPlayerLoginDTO(player.get().getId_player(),player.get().getName());
+        return ResponseEntity.ok().body(res);
     }
     @PutMapping
     public ResponseEntity updatePlayer(@RequestBody Player player){

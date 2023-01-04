@@ -1,14 +1,17 @@
+
+
+
 .navbar {
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    height: 40%;
-    border-bottom: 1px solid white ;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  border-bottom: 1px solid white;
   }
   
   .navbar a {
     width:8%;
-    height: fit-content;
+    
     display: inline-block;
     text-align: center;
     padding: 12px;
@@ -18,13 +21,7 @@
   
   }
   
-  .navbar a:first-child {
-    margin-left: 0;
-  }
   
-  .navbar a:last-child {
-    margin-right: 0;
-  }
   
   /* Navbar links on mouse-over */
   .navbar a:hover {
@@ -43,43 +40,48 @@
       display: block;
     }
   } 
-  .section {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    width: 30%;
-    height: 30%;
-  }
-  
-  .section img {
-    width: 30%;
-    height: 30%;
-  }
-  
+
   .section h1 {
     font-size: 48px;
     text-align: center;
     margin: 24px 0;
+    
+  }
+h2 {
+  font-size: xx-large;
+  font-style: italic;
+  font-family: "Helvetica Neue", sans-serif;  /* specify a font */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* add a shadow */
+  color: white;
+  text-decoration: none;  /* remove underline */
+}
+  
+  a h2 {
+    text-decoration: none;  /* remove underline */
+  }
+  .title-container {
+    width: 100%;  /* take up the whole width of the screen */
+    text-align: center;  /* center the text horizontally */
+    background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+
+    padding: 20px;  /* add some padding */
+  }
+  .rest-container {
+    width: 100%;
+    height: 400px;  /* take up the whole width of the screen */
+    text-align: center;  /* center the text horizontally */
+    background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+
+    padding: 20px;  /* add some padding */
+  }
+  
+  .title-container h2 {
+    margin: 0;  /* remove the default margin */
   }
 
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-  }
   
-  /* Create two equal columns that sits next to each other */
-  .column {
-    flex: 50%;
-    padding: 0 4px;
-  }
-  
-  .column img {
-    margin-top: 8px;
-    vertical-align: middle;
-  }
   .container {
+
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -87,11 +89,44 @@
     flex-direction: row; /* stack the elements horizontally */
     width: 100%;
     height: 100%;
+    
+
   }
   
   .container a img {
-    display: block; /* make the image block-level */
-    width: 100%; /* fill the link */
-    height: 100%; /* fill the link */
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;  /* add a transition */
   }
   
+  .container a img:hover {
+    transform: scale(1.2);  /* scale the image up by 50% */
+  }
+  
+  #start-button, #target {
+    width: 100%;
+    height: 100%;
+    font-size: 64px;
+    text-align: center;
+    margin: 20px auto;
+    display: block;
+    padding: 20px;
+    border: none;
+    color: white;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);  /* add a shadow */
+    
+    cursor: pointer;
+  }
+  
+  #start-button {
+    display: block;
+    height:  1000px;
+    background-color: hsl(61, 100%, 50%);
+  }
+  
+  #target {
+    display: block;
+    height:  1000px;
+    background-color: #03e9f4;
+  }

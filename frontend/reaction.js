@@ -1,4 +1,21 @@
   
+
+  
+    function deleteCok(){
+        deleteCookie("id_player");
+        deleteCookie("name");
+        window.location.href="reaction.html"
+    }
+    function deleteCookie(name) {
+    setCookie(name, '', -1);
+  }
+     function getCookie(name) {
+         const value = `; ${document.cookie}`;
+         const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -21,12 +38,78 @@ function getCookie(name) {
     }
     return 1000000 * (1 - (reactionTime / 500));
     }
-  
+    function createGameIfNotPresent(){
+      const url = 'http://localhost:8080/game';
+        fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+
+          }
+          return response.json();
+        })
+        .then(data => {
+
+            
+        })
+        .catch(error => {
+          createReq();
+        });
+        game();
+
+    }
+    function createReq(){
+      const data = {name: 'Reaction Test'}
+      const url = 'http://localhost:8080/game';
+        fetch(url, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+            
+          }
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+
+          }
+          return response.json();
+        })
+        .then(data => {
+
+            
+        })
+        .catch(error => {
+        
+        });
+
+    }
   
 
     function game(){
   
+      let username = getCookie('name');
 
+if (username != null) {
+    console.log("Welcome ", username );
+    // User is logged in
+  document.getElementById("login-button").style.display = "none";
+  document.getElementById("register-button").textContent = "     "+ username;
+  document.getElementById("register-button").className="fa fa-fw fa-user"
+
+  
+} else {
+    // User is not logged in
+    console.log("kl ", username );
+    document.getElementById("Log Out").style.display = "none";
+    
+}
   
   
     const startButton = document.getElementById('start-button');
@@ -76,6 +159,8 @@ function getCookie(name) {
         }
         
     });
+
+   
 
     function sendScore(timeTaken){
         const data = {  id_player: getCookie('id_player') * 1, id_game: 1, score: 100/timeTaken};
