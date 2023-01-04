@@ -1,6 +1,7 @@
 package TJV.HumanBenchmark.Controllers;
 
 import TJV.HumanBenchmark.DTOs.PlayerDeleteDTO;
+import TJV.HumanBenchmark.DTOs.PlayerLoginDTO;
 import TJV.HumanBenchmark.DTOs.RegisterPlayerDTO;
 import TJV.HumanBenchmark.Model.Player;
 import TJV.HumanBenchmark.Repository.PlayerRepo;
@@ -18,18 +19,19 @@ public class PlayerController {
     public PlayerController(PlayerRepo playerRepo) {
         this.playerRepo = playerRepo;
     }
-
+    @RequestMapping("/register")
     @PostMapping
     public ResponseEntity registerPlayer(@RequestBody RegisterPlayerDTO registerPlayerDTO) {
         Optional<Player> player = playerRepo.register(registerPlayerDTO);
-        if (player.isEmpty()) return ResponseEntity.badRequest().build();
+        if (player.isEmpty()) return ResponseEntity.badRequest().body("Email already present !");
         return ResponseEntity.ok().body(player.get());
     }
-    @GetMapping
-    public ResponseEntity getAllPlayers(){
-        Optional<List<Player>> players = playerRepo.getAllPlayers();
-        if (players.isEmpty()) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok().body(players.get());
+    @RequestMapping("/login")
+    @PostMapping
+    public ResponseEntity loginPlayer(@RequestBody PlayerLoginDTO loginDTO){
+        Optional<Player> player = playerRepo.loginPlayer(loginDTO);
+        if (player.isEmpty()) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok().body(player.get());
     }
     @PutMapping
     public ResponseEntity updatePlayer(@RequestBody Player player){

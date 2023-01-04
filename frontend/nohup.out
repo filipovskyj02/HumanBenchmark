@@ -1,0 +1,95 @@
+The disableGPU setting is set to undefined
+Not disabling GPU
+Main~createDefaultWorkingDir - Default working dir creation already attempted
+1672782247727 main info "Booting Postman 10.6.0, linux-6.1.1-arch1-1 on x64"
+1672782247728 main info "EventBus~initialize - Success"
+1672782247732 main info "Proxy configuration has not been setup"
+1672782247733 main info "CloudProxyManager~init - Success"
+libva error: vaGetDriverNameByIndex() failed with unknown libva error, driver_name = (null)
+[371133:0103/224407.738700:ERROR:sandbox_linux.cc(377)] InitializeSandbox() called with multiple threads in process gpu-process.
+1672782247745 main info "UpdateHandler~init - Success"
+1672782247748 main info "LeaderSelection: Initialized successfully"
+1672782247750 main info "VersionDependencyService: Initialized successfully"
+1672782247762 main info "LinuxAutoUpdater~Cleanup - Initial cleanup successful"
+error reading fileError: ENOENT: no such file or directory, open '/home/kysm8/.config/Postman/proxy/postman-proxy-ca.crt'
+1672782247765 main info "Generated root certificate for linux"
+1672782247793 main info "GPU detected VID 4318 DID 9373 ACTIVE true"
+1672782247794 main info "GPU detected VID 32902 DID 39520 ACTIVE false"
+1672782248791 main info "RuntimeIPCAgent~started: Success"
+1672782248800 main error "Error encountered while creating root CA",{"name":"Error","message":"RSA PRIVATE KEY not found from openssl output:\n---stdout---\n-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDv3qNhrjJ+Fb9z\nUsolDm3DZDUX5WHaZ8bw4Hv8wXmiJMAvSrmBaJhK3zJsOKxjfj+xWMWM7q6np14l\nb+99YRfI9p4ruaHYpn+GrfqV7ESrJtc/86OrSh9p4Z81txSB9zCO1s7F55ZQ0PqK\nNUYo5Q+T1aZLF+H3pJAolQRHVIBpoq4um5n7IRaQxwFtn6i3PbS92yOj7kzuhfaP\n+Lvdb19duf60LbrQraGEZzZ9eQ5XkbGMpUvpmqC8T7DZrCT3xeSPgNlDSCkftZDS\nj3bQD5wLDfjjUe4rGcTw7zNr4tEhrx0vh7FKEJEbmpkrjwiGT8QFd43A+scDu4i5\n923EQ5mXAgMBAAECggEAJWsuQo0pnEipOoTGOvyiu9HUhHtIhgkdXDMwtE+8OUKR\nZm86PAlEhJ2H4KEAp26o4fIOszsCrO2rfpyVGBJ+4t8x8nE9Ya4rg6d9SUj3t1lS\nR8wqkox4FQzYyMjcHqAgh4/T5sSHSukmxEumO7fr86xnChzaJ8cYo/QHHFd+xruI\nLTyCwiHDOHqCqk3lM2YMUj6Wf4stmzAc2TROsmYbsBJH4AocRCnEcr9/GaQSpZ66\npyjLKo1KAB1o+ZyVzS0qC0fSzj12X5+NztQVL4YvfF6uz6IdcYp/IYKrnJpmNzce\ncMSj+bkD/jjAUznBEG7bVItECPWIWIs0Ng9vTTYvfQKBgQD0W4vxrS0lexvfIp6H\nBwLRNG+DbJRNwiqXKCAI42Vfum6BmUesRoCpPD05oYX/74HEUtsEmQQLNAHba9UA\n790nu+sLWYkf00xeyKJ9cXhyGChvfmPT2ThOi5U0Q1YFeFhB46Tpv+bdgGrDk/eG\ns7aLZyQNmj8pE5+e5hO2IJTh1QKBgQD7TFoXCrgS7uNCH7h9SojyVAyXdhkmqk3s\n01pyuwRzMdAUI/N7uKmHwAvK+bFrFqi9tufUnxDXoPvJaL5AuHgwMFNOu0bz1jWz\no1aObpgwtVSpRnU0wjAsKeK9LsjlnOkwQttWHD+ed1kWTzxaXezMnAHt/2fC/ugZ\nOPLexhaXuwKBgQDuMrNXcjXZHInN2MRp4ca4QoIVvelPZ1/3G1Em+OvgBi8kvFNm\ntw9CaYtRO4gRNdrskswXTkXn2dmZmCL6F9ggnImB9dS6plIC71eeKtd7eNsp3C3Z\n3ByMTHq0iJM5H9gA2rTue3fEIiNw5TNcJqFigLdfXyYEl7F4xtUeK+KVxQKBgQCu\nH09lG9ZDuCbbkGMi3VxanIZFBF2U/vgTmrbXPGJu9xr4eZiiJ2fAWf9R2wVl8ENn\ngK7OEpF292K/QcZhze/pY/K1YOpe1hRLrmexNUxao6pPyDQ6JDuAvl0PPLWS89BX\n0ltsJRKn2IZwAOMOsnn7pDVqFUhuQnXL1DvkxFivNQKBgBDReH3dRQsaQerSzF+h\n7ii54ehRLlo8j/oj+UV7rlNXz6YzgN0CuzewqJ5+fB99JjpTGb1GRLeAq8616uAh\nhrxHoNR1j6LKFjCkyigm1e20IwMJDffhyz7cVrckQhmR13q6FahsyI4sA7P4XneY\ndkYvnjcrdqmSYZIXHwWjXTF5\n-----END PRIVATE KEY-----\n\n---stderr---\n\ncode: 0","stack":"Error: RSA PRIVATE KEY not found from openssl output:\n---stdout---\n-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDv3qNhrjJ+Fb9z\nUsolDm3DZDUX5WHaZ8bw4Hv8wXmiJMAvSrmBaJhK3zJsOKxjfj+xWMWM7q6np14l\nb+99YRfI9p4ruaHYpn+GrfqV7ESrJtc/86OrSh9p4Z81txSB9zCO1s7F55ZQ0PqK\nNUYo5Q+T1aZLF+H3pJAolQRHVIBpoq4um5n7IRaQxwFtn6i3PbS92yOj7kzuhfaP\n+Lvdb19duf60LbrQraGEZzZ9eQ5XkbGMpUvpmqC8T7DZrCT3xeSPgNlDSCkftZDS\nj3bQD5wLDfjjUe4rGcTw7zNr4tEhrx0vh7FKEJEbmpkrjwiGT8QFd43A+scDu4i5\n923EQ5mXAgMBAAECggEAJWsuQo0pnEipOoTGOvyiu9HUhHtIhgkdXDMwtE+8OUKR\nZm86PAlEhJ2H4KEAp26o4fIOszsCrO2rfpyVGBJ+4t8x8nE9Ya4rg6d9SUj3t1lS\nR8wqkox4FQzYyMjcHqAgh4/T5sSHSukmxEumO7fr86xnChzaJ8cYo/QHHFd+xruI\nLTyCwiHDOHqCqk3lM2YMUj6Wf4stmzAc2TROsmYbsBJH4AocRCnEcr9/GaQSpZ66\npyjLKo1KAB1o+ZyVzS0qC0fSzj12X5+NztQVL4YvfF6uz6IdcYp/IYKrnJpmNzce\ncMSj+bkD/jjAUznBEG7bVItECPWIWIs0Ng9vTTYvfQKBgQD0W4vxrS0lexvfIp6H\nBwLRNG+DbJRNwiqXKCAI42Vfum6BmUesRoCpPD05oYX/74HEUtsEmQQLNAHba9UA\n790nu+sLWYkf00xeyKJ9cXhyGChvfmPT2ThOi5U0Q1YFeFhB46Tpv+bdgGrDk/eG\ns7aLZyQNmj8pE5+e5hO2IJTh1QKBgQD7TFoXCrgS7uNCH7h9SojyVAyXdhkmqk3s\n01pyuwRzMdAUI/N7uKmHwAvK+bFrFqi9tufUnxDXoPvJaL5AuHgwMFNOu0bz1jWz\no1aObpgwtVSpRnU0wjAsKeK9LsjlnOkwQttWHD+ed1kWTzxaXezMnAHt/2fC/ugZ\nOPLexhaXuwKBgQDuMrNXcjXZHInN2MRp4ca4QoIVvelPZ1/3G1Em+OvgBi8kvFNm\ntw9CaYtRO4gRNdrskswXTkXn2dmZmCL6F9ggnImB9dS6plIC71eeKtd7eNsp3C3Z\n3ByMTHq0iJM5H9gA2rTue3fEIiNw5TNcJqFigLdfXyYEl7F4xtUeK+KVxQKBgQCu\nH09lG9ZDuCbbkGMi3VxanIZFBF2U/vgTmrbXPGJu9xr4eZiiJ2fAWf9R2wVl8ENn\ngK7OEpF292K/QcZhze/pY/K1YOpe1hRLrmexNUxao6pPyDQ6JDuAvl0PPLWS89BX\n0ltsJRKn2IZwAOMOsnn7pDVqFUhuQnXL1DvkxFivNQKBgBDReH3dRQsaQerSzF+h\n7ii54ehRLlo8j/oj+UV7rlNXz6YzgN0CuzewqJ5+fB99JjpTGb1GRLeAq8616uAh\nhrxHoNR1j6LKFjCkyigm1e20IwMJDffhyz7cVrckQhmR13q6FahsyI4sA7P4XneY\ndkYvnjcrdqmSYZIXHwWjXTF5\n-----END PRIVATE KEY-----\n\n---stderr---\n\ncode: 0\n    at /home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:80:23\n    at /home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:222:7\n    at deleteSeries (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/helper.js:130:14)\n    at Object.module.exports.deleteTempFiles (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/helper.js:133:3)\n    at /home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:221:12\n    at done (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:160:18)\n    at ChildProcess.<anonymous> (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:175:7)\n    at ChildProcess.emit (node:events:390:28)\n    at ChildProcess.emit (node:domain:475:12)\n    at maybeClose (node:internal/child_process:1064:16)\n    at Socket.<anonymous> (node:internal/child_process:450:11)\n    at Socket.emit (node:events:390:28)\n    at Socket.emit (node:domain:475:12)\n    at Pipe.<anonymous> (node:net:687:12)"}
+1672782248800 main error "Error generating rootCA certificate for HTTPS proxy",{"name":"Error","message":"RSA PRIVATE KEY not found from openssl output:\n---stdout---\n-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDv3qNhrjJ+Fb9z\nUsolDm3DZDUX5WHaZ8bw4Hv8wXmiJMAvSrmBaJhK3zJsOKxjfj+xWMWM7q6np14l\nb+99YRfI9p4ruaHYpn+GrfqV7ESrJtc/86OrSh9p4Z81txSB9zCO1s7F55ZQ0PqK\nNUYo5Q+T1aZLF+H3pJAolQRHVIBpoq4um5n7IRaQxwFtn6i3PbS92yOj7kzuhfaP\n+Lvdb19duf60LbrQraGEZzZ9eQ5XkbGMpUvpmqC8T7DZrCT3xeSPgNlDSCkftZDS\nj3bQD5wLDfjjUe4rGcTw7zNr4tEhrx0vh7FKEJEbmpkrjwiGT8QFd43A+scDu4i5\n923EQ5mXAgMBAAECggEAJWsuQo0pnEipOoTGOvyiu9HUhHtIhgkdXDMwtE+8OUKR\nZm86PAlEhJ2H4KEAp26o4fIOszsCrO2rfpyVGBJ+4t8x8nE9Ya4rg6d9SUj3t1lS\nR8wqkox4FQzYyMjcHqAgh4/T5sSHSukmxEumO7fr86xnChzaJ8cYo/QHHFd+xruI\nLTyCwiHDOHqCqk3lM2YMUj6Wf4stmzAc2TROsmYbsBJH4AocRCnEcr9/GaQSpZ66\npyjLKo1KAB1o+ZyVzS0qC0fSzj12X5+NztQVL4YvfF6uz6IdcYp/IYKrnJpmNzce\ncMSj+bkD/jjAUznBEG7bVItECPWIWIs0Ng9vTTYvfQKBgQD0W4vxrS0lexvfIp6H\nBwLRNG+DbJRNwiqXKCAI42Vfum6BmUesRoCpPD05oYX/74HEUtsEmQQLNAHba9UA\n790nu+sLWYkf00xeyKJ9cXhyGChvfmPT2ThOi5U0Q1YFeFhB46Tpv+bdgGrDk/eG\ns7aLZyQNmj8pE5+e5hO2IJTh1QKBgQD7TFoXCrgS7uNCH7h9SojyVAyXdhkmqk3s\n01pyuwRzMdAUI/N7uKmHwAvK+bFrFqi9tufUnxDXoPvJaL5AuHgwMFNOu0bz1jWz\no1aObpgwtVSpRnU0wjAsKeK9LsjlnOkwQttWHD+ed1kWTzxaXezMnAHt/2fC/ugZ\nOPLexhaXuwKBgQDuMrNXcjXZHInN2MRp4ca4QoIVvelPZ1/3G1Em+OvgBi8kvFNm\ntw9CaYtRO4gRNdrskswXTkXn2dmZmCL6F9ggnImB9dS6plIC71eeKtd7eNsp3C3Z\n3ByMTHq0iJM5H9gA2rTue3fEIiNw5TNcJqFigLdfXyYEl7F4xtUeK+KVxQKBgQCu\nH09lG9ZDuCbbkGMi3VxanIZFBF2U/vgTmrbXPGJu9xr4eZiiJ2fAWf9R2wVl8ENn\ngK7OEpF292K/QcZhze/pY/K1YOpe1hRLrmexNUxao6pPyDQ6JDuAvl0PPLWS89BX\n0ltsJRKn2IZwAOMOsnn7pDVqFUhuQnXL1DvkxFivNQKBgBDReH3dRQsaQerSzF+h\n7ii54ehRLlo8j/oj+UV7rlNXz6YzgN0CuzewqJ5+fB99JjpTGb1GRLeAq8616uAh\nhrxHoNR1j6LKFjCkyigm1e20IwMJDffhyz7cVrckQhmR13q6FahsyI4sA7P4XneY\ndkYvnjcrdqmSYZIXHwWjXTF5\n-----END PRIVATE KEY-----\n\n---stderr---\n\ncode: 0","stack":"Error: RSA PRIVATE KEY not found from openssl output:\n---stdout---\n-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDv3qNhrjJ+Fb9z\nUsolDm3DZDUX5WHaZ8bw4Hv8wXmiJMAvSrmBaJhK3zJsOKxjfj+xWMWM7q6np14l\nb+99YRfI9p4ruaHYpn+GrfqV7ESrJtc/86OrSh9p4Z81txSB9zCO1s7F55ZQ0PqK\nNUYo5Q+T1aZLF+H3pJAolQRHVIBpoq4um5n7IRaQxwFtn6i3PbS92yOj7kzuhfaP\n+Lvdb19duf60LbrQraGEZzZ9eQ5XkbGMpUvpmqC8T7DZrCT3xeSPgNlDSCkftZDS\nj3bQD5wLDfjjUe4rGcTw7zNr4tEhrx0vh7FKEJEbmpkrjwiGT8QFd43A+scDu4i5\n923EQ5mXAgMBAAECggEAJWsuQo0pnEipOoTGOvyiu9HUhHtIhgkdXDMwtE+8OUKR\nZm86PAlEhJ2H4KEAp26o4fIOszsCrO2rfpyVGBJ+4t8x8nE9Ya4rg6d9SUj3t1lS\nR8wqkox4FQzYyMjcHqAgh4/T5sSHSukmxEumO7fr86xnChzaJ8cYo/QHHFd+xruI\nLTyCwiHDOHqCqk3lM2YMUj6Wf4stmzAc2TROsmYbsBJH4AocRCnEcr9/GaQSpZ66\npyjLKo1KAB1o+ZyVzS0qC0fSzj12X5+NztQVL4YvfF6uz6IdcYp/IYKrnJpmNzce\ncMSj+bkD/jjAUznBEG7bVItECPWIWIs0Ng9vTTYvfQKBgQD0W4vxrS0lexvfIp6H\nBwLRNG+DbJRNwiqXKCAI42Vfum6BmUesRoCpPD05oYX/74HEUtsEmQQLNAHba9UA\n790nu+sLWYkf00xeyKJ9cXhyGChvfmPT2ThOi5U0Q1YFeFhB46Tpv+bdgGrDk/eG\ns7aLZyQNmj8pE5+e5hO2IJTh1QKBgQD7TFoXCrgS7uNCH7h9SojyVAyXdhkmqk3s\n01pyuwRzMdAUI/N7uKmHwAvK+bFrFqi9tufUnxDXoPvJaL5AuHgwMFNOu0bz1jWz\no1aObpgwtVSpRnU0wjAsKeK9LsjlnOkwQttWHD+ed1kWTzxaXezMnAHt/2fC/ugZ\nOPLexhaXuwKBgQDuMrNXcjXZHInN2MRp4ca4QoIVvelPZ1/3G1Em+OvgBi8kvFNm\ntw9CaYtRO4gRNdrskswXTkXn2dmZmCL6F9ggnImB9dS6plIC71eeKtd7eNsp3C3Z\n3ByMTHq0iJM5H9gA2rTue3fEIiNw5TNcJqFigLdfXyYEl7F4xtUeK+KVxQKBgQCu\nH09lG9ZDuCbbkGMi3VxanIZFBF2U/vgTmrbXPGJu9xr4eZiiJ2fAWf9R2wVl8ENn\ngK7OEpF292K/QcZhze/pY/K1YOpe1hRLrmexNUxao6pPyDQ6JDuAvl0PPLWS89BX\n0ltsJRKn2IZwAOMOsnn7pDVqFUhuQnXL1DvkxFivNQKBgBDReH3dRQsaQerSzF+h\n7ii54ehRLlo8j/oj+UV7rlNXz6YzgN0CuzewqJ5+fB99JjpTGb1GRLeAq8616uAh\nhrxHoNR1j6LKFjCkyigm1e20IwMJDffhyz7cVrckQhmR13q6FahsyI4sA7P4XneY\ndkYvnjcrdqmSYZIXHwWjXTF5\n-----END PRIVATE KEY-----\n\n---stderr---\n\ncode: 0\n    at /home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:80:23\n    at /home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:222:7\n    at deleteSeries (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/helper.js:130:14)\n    at Object.module.exports.deleteTempFiles (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/helper.js:133:3)\n    at /home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:221:12\n    at done (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:160:18)\n    at ChildProcess.<anonymous> (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:175:7)\n    at ChildProcess.emit (node:events:390:28)\n    at ChildProcess.emit (node:domain:475:12)\n    at maybeClose (node:internal/child_process:1064:16)\n    at Socket.<anonymous> (node:internal/child_process:450:11)\n    at Socket.emit (node:events:390:28)\n    at Socket.emit (node:domain:475:12)\n    at Pipe.<anonymous> (node:net:687:12)"}
+(node:371091) UnhandledPromiseRejectionWarning: Error: RSA PRIVATE KEY not found from openssl output:
+---stdout---
+-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDv3qNhrjJ+Fb9z
+UsolDm3DZDUX5WHaZ8bw4Hv8wXmiJMAvSrmBaJhK3zJsOKxjfj+xWMWM7q6np14l
+b+99YRfI9p4ruaHYpn+GrfqV7ESrJtc/86OrSh9p4Z81txSB9zCO1s7F55ZQ0PqK
+NUYo5Q+T1aZLF+H3pJAolQRHVIBpoq4um5n7IRaQxwFtn6i3PbS92yOj7kzuhfaP
++Lvdb19duf60LbrQraGEZzZ9eQ5XkbGMpUvpmqC8T7DZrCT3xeSPgNlDSCkftZDS
+j3bQD5wLDfjjUe4rGcTw7zNr4tEhrx0vh7FKEJEbmpkrjwiGT8QFd43A+scDu4i5
+923EQ5mXAgMBAAECggEAJWsuQo0pnEipOoTGOvyiu9HUhHtIhgkdXDMwtE+8OUKR
+Zm86PAlEhJ2H4KEAp26o4fIOszsCrO2rfpyVGBJ+4t8x8nE9Ya4rg6d9SUj3t1lS
+R8wqkox4FQzYyMjcHqAgh4/T5sSHSukmxEumO7fr86xnChzaJ8cYo/QHHFd+xruI
+LTyCwiHDOHqCqk3lM2YMUj6Wf4stmzAc2TROsmYbsBJH4AocRCnEcr9/GaQSpZ66
+pyjLKo1KAB1o+ZyVzS0qC0fSzj12X5+NztQVL4YvfF6uz6IdcYp/IYKrnJpmNzce
+cMSj+bkD/jjAUznBEG7bVItECPWIWIs0Ng9vTTYvfQKBgQD0W4vxrS0lexvfIp6H
+BwLRNG+DbJRNwiqXKCAI42Vfum6BmUesRoCpPD05oYX/74HEUtsEmQQLNAHba9UA
+790nu+sLWYkf00xeyKJ9cXhyGChvfmPT2ThOi5U0Q1YFeFhB46Tpv+bdgGrDk/eG
+s7aLZyQNmj8pE5+e5hO2IJTh1QKBgQD7TFoXCrgS7uNCH7h9SojyVAyXdhkmqk3s
+01pyuwRzMdAUI/N7uKmHwAvK+bFrFqi9tufUnxDXoPvJaL5AuHgwMFNOu0bz1jWz
+o1aObpgwtVSpRnU0wjAsKeK9LsjlnOkwQttWHD+ed1kWTzxaXezMnAHt/2fC/ugZ
+OPLexhaXuwKBgQDuMrNXcjXZHInN2MRp4ca4QoIVvelPZ1/3G1Em+OvgBi8kvFNm
+tw9CaYtRO4gRNdrskswXTkXn2dmZmCL6F9ggnImB9dS6plIC71eeKtd7eNsp3C3Z
+3ByMTHq0iJM5H9gA2rTue3fEIiNw5TNcJqFigLdfXyYEl7F4xtUeK+KVxQKBgQCu
+H09lG9ZDuCbbkGMi3VxanIZFBF2U/vgTmrbXPGJu9xr4eZiiJ2fAWf9R2wVl8ENn
+gK7OEpF292K/QcZhze/pY/K1YOpe1hRLrmexNUxao6pPyDQ6JDuAvl0PPLWS89BX
+0ltsJRKn2IZwAOMOsnn7pDVqFUhuQnXL1DvkxFivNQKBgBDReH3dRQsaQerSzF+h
+7ii54ehRLlo8j/oj+UV7rlNXz6YzgN0CuzewqJ5+fB99JjpTGb1GRLeAq8616uAh
+hrxHoNR1j6LKFjCkyigm1e20IwMJDffhyz7cVrckQhmR13q6FahsyI4sA7P4XneY
+dkYvnjcrdqmSYZIXHwWjXTF5
+-----END PRIVATE KEY-----
+
+---stderr---
+
+code: 0
+    at /home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:80:23
+    at /home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:222:7
+    at deleteSeries (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/helper.js:130:14)
+    at Object.module.exports.deleteTempFiles (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/helper.js:133:3)
+    at /home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:221:12
+    at done (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:160:18)
+    at ChildProcess.<anonymous> (/home/kysm8/opt/app/resources/app/node_modules/pem/lib/openssl.js:175:7)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at maybeClose (node:internal/child_process:1064:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:390:28)
+    at Socket.emit (node:domain:475:12)
+    at Pipe.<anonymous> (node:net:687:12)
+(Use `postman --trace-warnings ...` to show where the warning was created)
+(node:371091) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+[371133:0103/224410.649505:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 1 times!
+1672782251084 main info "UpdateHandler~app-update-events - Received event",{"name":"checkForElectronVersionUpdated","namespace":"appUpdate"}
+INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
+InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
+IPCClient ~ WindowHandler: New event is received { type: 'window-opened' }
+1672782251107 main info "windowManager: First requester booted successfully."
+1672782251107 main info "windowManager~restoreWindows: Restoring requester windows"
+1672782251108 main info "Main~AppEvents - Received booted event for process requester.Version 10.6.7 UI Version: 10.6.7-ui-221210-1433 Desktop Platform Version: 10.6.0"
+1672782251131 main info "performBackgroundShellMigration: Migration has already been done. Bailing out"
+1672782253081 main info "Main - model-events~user - (user, bootstrapUser) received"
+[371133:0103/224424.573716:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 2 times!
+[371133:0103/224428.176255:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 3 times!
+defaults/preferences/firefox.js:6: prefs parse error: expected ',' after pref name
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: The URI is malformed..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:334:13
+
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.

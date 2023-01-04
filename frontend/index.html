@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head >
+    <link rel="stylesheet" href="css/navbar1.css">
+</head>
+<body>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="navbar">
+  <a id="home" class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a id="register-button"href="register.html"><i class="fa fa-fw fa-user"></i> Register</a>
+  <a id="login-button"href="login.html"><i class="fa fa-fw fa-user"></i> Login</a>
+  <a onclick="deleteCok()"id="Log Out">Log Out</a>
+</div>
+  <script>
+    function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${name}=${value};${expires};path=/`;
+  }
+    function deleteCok(){
+        deleteCookie("id_player");
+        deleteCookie("name");
+    }
+    function deleteCookie(name) {
+    setCookie(name, '', -1);
+  }
+     function getCookie(name) {
+         const value = `; ${document.cookie}`;
+         const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+let username = getCookie('name');
+
+if (username != null) {
+    console.log("Welcome ", username );
+    // User is logged in
+  document.getElementById("login-button").style.display = "none";
+  document.getElementById("register-button").textContent = "     "+ username;
+  document.getElementById("register-button").className="fa fa-fw fa-user"
+
+  
+} else {
+    // User is not logged in
+    console.log("kl ", username );
+    document.getElementById("Log Out").style.display = "none";
+    
+ 
+}
+</script>
+
+</body>

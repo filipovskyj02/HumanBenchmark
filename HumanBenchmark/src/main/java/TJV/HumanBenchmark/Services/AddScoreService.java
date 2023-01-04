@@ -40,9 +40,7 @@ public class AddScoreService {
         player.addScore(newScore);
         checkAndUpdateMax(scoreDTO);
         game.addScore(newScore);
-        player.addScore(newScore);
-        playerRepo.save(player);
-        gameRepo.save(game);
+        gameRepo.flush();
         return true;
 
     }
