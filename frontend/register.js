@@ -43,23 +43,30 @@ function getCookie(name) {
 
 
 function validateForm(email, password, name, repeatPassword) {
+  document.getElementById("message").classList.remove('error');
+  document.getElementById("message").classList.remove('success');
   if (!validateEmail(email)) {
     document.getElementById("message").classList.add('error');
     document.getElementById("message").innerHTML = 'Email is not in the correct format';
+    
     return false;
   }
   if (!name){
     document.getElementById("message").classList.add('error');
     document.getElementById("message").innerHTML = 'Name cannot be empty';
+   
     return false;
   }
   if (!password){
     document.getElementById("message").classList.add('error');
     document.getElementById("message").innerHTML = 'Password cannot be emty';
+    
     return false;
   }
   if (password != repeatPassword) {
+    document.getElementById("message").classList.add('error');
     document.getElementById("message").innerHTML = 'Passwords must match !';
+    
     return false;
     
   }
@@ -86,6 +93,8 @@ function toggleFormVisibility(form) {
   }}
 
   function registerUser(data) {
+    document.getElementById("message").classList.remove('error');
+    document.getElementById("message").classList.remove('success');
     const url = 'http://localhost:8080/player/register';
     fetch(url, {
       method: 'POST',
@@ -111,6 +120,7 @@ function toggleFormVisibility(form) {
     .catch(error => {
       document.getElementById("message").classList.add('error');
       document.getElementById("message").innerHTML = 'Email already present';
+      
       console.error('Error:', error);
     });
   }

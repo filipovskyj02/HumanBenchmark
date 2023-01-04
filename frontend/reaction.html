@@ -3,37 +3,36 @@
 <head>
   <title>Reaction Test</title>
   <style>
-    
+    html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0; /* remove the default margin */
+  padding: 0; /* remove the default padding */
+}
 
+#start-button, #target {
+  width: 100%;
+  height: 100%;
+  font-size: 32px;
+  text-align: center;
+  margin: 20px auto;
+  display: block;
+  padding: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 
-    #start-button {
-        width: 100%;
-      font-size: 32px;
-      text-align: center;
-      margin: 20px auto;
-      display: block;
-      padding: 20px;
-      border: none;
-      background-color: hsl(61, 100%, 50%);
-      color: white;
-      cursor: pointer;
-    }
-    #target {
-        width: 100%;
-        height: 300px;
-      font-size: 72px;
-      text-align: center;
-      margin: 20px auto;
-      display: block;
-      padding: 20px;
-      border: none;
-      background-color: #03e9f4;
-      color: white;
-    }
-    
+#start-button {
+  background-color: hsl(61, 100%, 50%);
+}
+
+#target {
+  background-color: #03e9f4;
+}
   </style>
 </head>
-<body>
+<body onload="game()">
   <button id="start-button">Start</button>
   <div id="target" style="display: none;">Click me!</div>
   <div id="reaction-time" style="display: none;"></div>

@@ -2,16 +2,20 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    height: 40%;
+    border-bottom: 1px solid white ;
   }
   
   .navbar a {
-    width:5%;
+    width:8%;
+    height: fit-content;
     display: inline-block;
     text-align: center;
     padding: 12px;
     color: white;
     text-decoration: none;
     font-size: 17px;
+  
   }
   
   .navbar a:first-child {
@@ -39,3 +43,55 @@
       display: block;
     }
   } 
+  .section {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 30%;
+  }
+  
+  .section img {
+    width: 30%;
+    height: 30%;
+  }
+  
+  .section h1 {
+    font-size: 48px;
+    text-align: center;
+    margin: 24px 0;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  .column {
+    flex: 50%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+  }
+  .container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex; /* create a flex container */
+    flex-direction: row; /* stack the elements horizontally */
+    width: 100%;
+    height: 100%;
+  }
+  
+  .container a img {
+    display: block; /* make the image block-level */
+    width: 100%; /* fill the link */
+    height: 100%; /* fill the link */
+  }
+  

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <head >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/navbar1.css">
 </head>
 <body>
@@ -13,6 +17,13 @@
   <a id="login-button"href="login.html"><i class="fa fa-fw fa-user"></i> Login</a>
   <a onclick="deleteCok()"id="Log Out">Log Out</a>
 </div>
+  <br><br><br><br><br><br><br>
+  <div class="container">
+    <a href="reaction.html"><img src="image1.jpg" alt="Image 1" ></a>
+    <img src="image2.jpg" alt="Image 2" href="reaction.html">
+    <img src="image3.jpg" alt="Image 3" href="reaction.html">
+  </div>
+  
   <script>
     function setCookie(name, value, days) {
     const date = new Date();
@@ -23,6 +34,7 @@
     function deleteCok(){
         deleteCookie("id_player");
         deleteCookie("name");
+        window.location.href="index.html"
     }
     function deleteCookie(name) {
     setCookie(name, '', -1);

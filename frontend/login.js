@@ -48,6 +48,8 @@ function getCookie(name) {
     }}
   
     function loginUser(data) {
+        document.getElementById("message").classList.remove('error');
+        document.getElementById("message").classList.remove('success');
       const url = 'http://localhost:8080/player/login';
       fetch(url, {
         method: 'POST',
@@ -67,6 +69,7 @@ function getCookie(name) {
       .then(data => {
         document.getElementById("message").classList.add('success');
         document.getElementById("message").innerHTML = 'Logged In !';
+        
         setCookie('id_player', data.id_player, 7);
         setCookie('name', data.name, 7);
         window.location.href="index.html"
@@ -74,6 +77,9 @@ function getCookie(name) {
       .catch(error => {
         document.getElementById("message").classList.add('error');
         document.getElementById("message").innerHTML = 'Incorrect email or password';
+        
+
+        
         console.error('Error:', error);
       });
     }

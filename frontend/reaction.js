@@ -15,11 +15,20 @@ function getCookie(name) {
   function deleteCookie(name) {
     setCookie(name, '', -1);
   }
+  function score(reactionTime) {
+    if (reactionTime < 0 || reactionTime > 500) {
+    return 0;
+    }
+    return 1000000 * (1 - (reactionTime / 500));
+    }
+  
+  
+
+    function game(){
   
 
   
   
-
     const startButton = document.getElementById('start-button');
     const target = document.getElementById('target');
     
@@ -27,7 +36,7 @@ function getCookie(name) {
       
     
     
-    
+    let done = false;
     let startTime;
     let endTime;
     let changedToGreen = false;
@@ -46,20 +55,30 @@ function getCookie(name) {
 
     
     target.addEventListener('click', function() {
+        if(done){
+            window.location.href="reaction.html"
+
+        }
+
         if (changedToGreen){
             endTime = new Date().getTime();
             const timeTaken = (endTime - startTime) / 1000;
             target.textContent = `Your reaction time was ${timeTaken} seconds`;
             sendScore(timeTaken);
+            done = true;
 
         }
         else {
             target.textContent = 'Too soon';
+            target.style.backgroundColor = "red";
+            done = true;
+            
         }
+        
     });
 
     function sendScore(timeTaken){
-        const data = {  id_player: getCookie('id_player') * 1, id_game: 1, score: Math.floor(100/timeTaken) };
+        const data = {  id_player: getCookie('id_player') * 1, id_game: 1, score: 100/timeTaken};
 
         const url = 'http://localhost:8080/score';
         fetch(url, {
@@ -84,4 +103,4 @@ function getCookie(name) {
       }
     ;
 
-    
+    }
