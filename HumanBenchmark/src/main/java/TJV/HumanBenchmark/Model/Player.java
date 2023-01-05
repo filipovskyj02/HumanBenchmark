@@ -35,11 +35,18 @@ public class Player {
     private List<Score> scores = new ArrayList<Score>();
 
     @Nullable
-    @OneToMany
+    @ManyToMany
     private List<Medal> medals = new ArrayList<Medal>();
 
+    public List<Medal> getMedals() {
+        return medals;
+    }
 
-   public Player(String name, String email, String password){
+    public void setMedals(List<Medal> medals) {
+        this.medals = medals;
+    }
+
+    public Player(String name, String email, String password){
         this.name = name;
         this.email = email;
         this.password = password;

@@ -1,10 +1,12 @@
 package TJV.HumanBenchmark.Controllers;
 
-import TJV.HumanBenchmark.DTOs.MedalDescDTO;
+import TJV.HumanBenchmark.DTOs.MedalAwardDTO;
 import TJV.HumanBenchmark.DTOs.MedalIdDTO;
 import TJV.HumanBenchmark.DTOs.MedalIdDescDTO;
+import TJV.HumanBenchmark.DTOs.MedalNameDescDTO;
 import TJV.HumanBenchmark.Model.Medal;
 import TJV.HumanBenchmark.Repository.MedalRepo;
+import TJV.HumanBenchmark.Services.MedalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +18,11 @@ import java.util.Optional;
 public class MedalController {
 
     private final MedalRepo medalRepo;
+    private final MedalService medalService;
 
-    public MedalController(MedalRepo medalRepo) {
+    public MedalController(MedalRepo medalRepo, MedalService medalService) {
         this.medalRepo = medalRepo;
+        this.medalService = medalService;
     }
 
     @GetMapping
@@ -28,10 +32,19 @@ public class MedalController {
         return ResponseEntity.ok().body(medals.get());
     }
     @PostMapping
-    ResponseEntity addMedal(@RequestBody MedalDescDTO medalDescDTO){
-        Optional<Medal> medal = medalRepo.addMedal(medalDescDTO);
+    ResponseEntity addMedal(@RequestBody MedalNameDescDTO medalNameDescDTO){
+        Optional<Medal> medal = medalRepo.addMedal(medalNameDescDTO);
         if (medal.isEmpty()) return ResponseEntity.badRequest().body("Already Present !");
         return ResponseEntity.ok().body("Added !");
+
+    }
+    @PostMapping
+    @RequestMapping("/award")
+    ResponseEntity awardMedal(@RequestBody MedalAwardDTO medalAwardDTO){
+        int res = medalService.awardMedal(medalAwardDTO);
+        if (res == -1) return ResponseEntity.badRequest().body("Not Present !");
+        if (res == 0) return ResponseEntity.ok().body("Player already has the medal");
+        return ResponseEntity.ok().body("Medal Awarded !");
 
     }
     @DeleteMapping

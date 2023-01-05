@@ -1,5 +1,7 @@
 package TJV.HumanBenchmark.Services;
 
+import TJV.HumanBenchmark.DTOs.GameByIdDTO;
+import TJV.HumanBenchmark.DTOs.MaxScoreDTO;
 import TJV.HumanBenchmark.DTOs.ScoreDTO;
 import TJV.HumanBenchmark.Model.Game;
 import TJV.HumanBenchmark.Model.MaxScore;
@@ -63,6 +65,23 @@ public class AddScoreService {
 
 
         }
+        public int getMax(MaxScoreDTO maxScoreDTO) {
+            MaxScore.MaxScoreId compositeKey = new MaxScore.MaxScoreId(maxScoreDTO.getId_game(), maxScoreDTO.getId_player());
+            if (maxScoreRepo.existsById(compositeKey) == true) {
+                MaxScore maxScore = maxScoreRepo.getReferenceById(compositeKey);
+                return maxScore.getScore();
+            } else return 0;
+        }
+        public int getGlobalMax(GameByIdDTO gameByIdDTO){
+        int max = 0;
+        for (MaxScore maxScore: maxScoreRepo.findAll()){
+            if (maxScore.getId_maxscore().getId_game() == gameByIdDTO.getId_game() && maxScore.getScore() > max)
+                max = maxScore.getScore();
+        }
+        return max;
+
+        }
+
 
 
 }

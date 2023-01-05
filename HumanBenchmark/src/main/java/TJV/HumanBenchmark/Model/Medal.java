@@ -13,17 +13,29 @@ public class Medal {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_medal", unique = true, updatable = false)
     private long id_medal;
+    @Column(name = "name",length = 512)
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Column(name = "description",length = 4096)
     private String description;
 
 
     @Nullable
-    @OneToMany
+    @ManyToMany
     private List<Player> players = new ArrayList<Player>();
 
     public Medal(){}
 
-    public Medal(String description) {
+    public Medal(String name,String description) {
+        this.name = name;
         this.description = description;
     }
 

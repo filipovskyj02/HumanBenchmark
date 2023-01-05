@@ -27,47 +27,22 @@
       <a href="reaction.html"><img src="image2.jpg" alt="Image 1" ><h2>Memory Test<h2></a>
         
   </div>
+  <div class="title-container" id="userScore">
+    <h2></h2>
+    <table id="users">
+      <tr>
+        <th>Game</th>
+        <th>Your Maximum Score</th>
+        <th>Global Maximum Score</th>
+      </tr>
+    </table>
+    
   <div class="rest-container">
     
   </div>
   
-  <script>
-    function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = `expires=${date.toUTCString()}`;
-    document.cookie = `${name}=${value};${expires};path=/`;
-  }
-    function deleteCok(){
-        deleteCookie("id_player");
-        deleteCookie("name");
-        window.location.href="index.html"
-    }
-    function deleteCookie(name) {
-    setCookie(name, '', -1);
-  }
-     function getCookie(name) {
-         const value = `; ${document.cookie}`;
-         const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
-let username = getCookie('name');
-
-if (username != null) {
-    console.log("Welcome ", username );
-    // User is logged in
-  document.getElementById("login-button").style.display = "none";
-  document.getElementById("register-button").textContent = "     "+ username;
-  document.getElementById("register-button").className="fa fa-fw fa-user"
-
-  
-} else {
-    // User is not logged in
-    console.log("kl ", username );
-    document.getElementById("Log Out").style.display = "none";
-    
- 
-}
+  <script src="index.js">
+   
 </script>
 
 </body>

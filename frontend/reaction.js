@@ -39,6 +39,7 @@ function getCookie(name) {
     return 1000000 * (1 - (reactionTime / 500));
     }
     function createGameIfNotPresent(){
+
       const url = 'http://localhost:8080/game';
         fetch(url, {
           method: 'GET',
@@ -59,7 +60,9 @@ function getCookie(name) {
         })
         .catch(error => {
           createReq();
+          
         });
+        checkMedals();
         game();
 
     }
@@ -146,9 +149,11 @@ if (username != null) {
         if (changedToGreen){
             endTime = new Date().getTime();
             const timeTaken = (endTime - startTime) / 1000;
-            target.textContent = `Your reaction time was ${timeTaken} seconds`;
-            sendScore(timeTaken);
+            target.textContent = `Your reaction time was ${timeTaken} seconds, \n your score is ${(100/timeTaken).toFixed(1)} .`;
             done = true;
+            sendScore(timeTaken);
+            awardMedals(timeTaken);
+            
 
         }
         else {
@@ -189,3 +194,102 @@ if (username != null) {
     ;
 
     }
+
+
+    function checkMedals(){
+        const url = 'http://localhost:8080/medal';
+          fetch(url, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+  
+            }
+            return response.json();
+          })
+          .then(data => {
+  
+              
+          })
+          .catch(error => {
+            createMedals()
+          });
+
+        }
+        function createMedals(){
+          const medals = [
+            {
+              name: "Bronze Medal",
+              description: "Awarded for achieving a score of 50 or higher on the game."
+            },
+            {
+              name: "Silver Medal",
+              description: "Awarded for achieving a score of 75 or higher on the game."
+            },
+            {
+              name: "Gold Medal",
+              description: "Awarded for achieving a score of 100 or higher on the game."
+            },
+            {
+              name: "Fastest Reaction Time",
+              description: "Awarded for achieving the fastest reaction time on the game."
+            },
+            {
+              name: "Perfect Streak",
+              description: "Awarded for achieving a certain number of consecutive perfect scores on the game."
+            }
+          ];
+
+          for (const medal of medals ){
+            let data = {name: medal.name,description: medal.description};
+            fetch("http://localhost:8080/medal", {
+              method: 'POST',
+              body: JSON.stringify(data),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            })
+
+          }
+
+        }
+        async function awardMedals(reactionTime){
+            let medalsToAdd = [];
+            if (reactionTime < 0.5) medalsToAdd.push("Bronze Medal");
+            if (reactionTime < 0.4) medalsToAdd.push("Silver Medal");
+            if (reactionTime < 0.275) medalsToAdd.push("Gold Medal");
+            data = {id_game : 1};
+            const maxScoreResponse = await fetch("http://localhost:8080/score/globalmax", {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }})
+  
+            const maxscore = await maxScoreResponse.json();
+            if (maxscore <= (100/reactionTime)){
+              medalsToAdd.push("Fastest Reaction Time");
+            }
+            for (const medal of medalsToAdd){
+              console.log(medal);
+              
+              let package = {name: medal, id_player: getCookie("id_player")};
+              const maxScoreResponse = await fetch("http://localhost:8080/medal/award", {
+              method: 'POST',
+              body: JSON.stringify(package),
+              headers: {
+                'Content-Type': 'application/json'
+            }}
+            
+            
+            )
+
+            }
+                
+              
+
+        }

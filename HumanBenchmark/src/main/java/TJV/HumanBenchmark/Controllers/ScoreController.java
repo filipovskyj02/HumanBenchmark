@@ -1,5 +1,7 @@
 package TJV.HumanBenchmark.Controllers;
 
+import TJV.HumanBenchmark.DTOs.GameByIdDTO;
+import TJV.HumanBenchmark.DTOs.MaxScoreDTO;
 import TJV.HumanBenchmark.DTOs.ScoreDTO;
 import TJV.HumanBenchmark.Model.Score;
 import TJV.HumanBenchmark.Services.AddScoreService;
@@ -23,5 +25,15 @@ public class ScoreController {
         if ( addScoreService.addScoreToDb(scoreDTO)  == false ) return ResponseEntity.badRequest().body("Not present !");
         return ResponseEntity.ok().body(scoreDTO);
 
+    }
+    @RequestMapping("/max")
+    @PostMapping
+    ResponseEntity getMaxScore(@RequestBody MaxScoreDTO maxScoreDTO){
+        return ResponseEntity.ok(addScoreService.getMax(maxScoreDTO));
+    }
+    @RequestMapping("/globalmax")
+    @PostMapping
+    ResponseEntity getGlobalMaxScore(@RequestBody GameByIdDTO gameByIdDTO){
+        return ResponseEntity.ok(addScoreService.getGlobalMax(gameByIdDTO));
     }
 }

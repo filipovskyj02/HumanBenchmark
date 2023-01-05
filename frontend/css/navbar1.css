@@ -130,3 +130,28 @@ h2 {
     height:  1000px;
     background-color: #03e9f4;
   }
+  #users {
+    
+    font-family: Arial, Helvetica, sans-serif;
+    position:relative;
+    color: #000;
+    margin-top: 50px;
+    width: 50%;
+    left: 25%;
+  }
+  
+  #users td, #users th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #users tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #users tr:hover {background-color: #ddd;}
+  
+  #users th {
+    
+    text-align: center;
+    background-image: linear-gradient(to right, #141e30, #243b55);
+    color: white;
+  }

@@ -1,8 +1,9 @@
 package TJV.HumanBenchmark.Repository.Implementations;
 
-import TJV.HumanBenchmark.DTOs.MedalDescDTO;
+import TJV.HumanBenchmark.DTOs.MedalAwardDTO;
 import TJV.HumanBenchmark.DTOs.MedalIdDTO;
 import TJV.HumanBenchmark.DTOs.MedalIdDescDTO;
+import TJV.HumanBenchmark.DTOs.MedalNameDescDTO;
 import TJV.HumanBenchmark.Model.Medal;
 import TJV.HumanBenchmark.Repository.RepoInterface.CustomMedalRepo;
 import TJV.HumanBenchmark.Repository.MedalRepo;
@@ -18,10 +19,10 @@ public class MedalRepoImpl implements CustomMedalRepo {
     @Lazy
     MedalRepo medalRepo;
     @Override
-    public Optional<Medal> addMedal(MedalDescDTO medalDescDTO){
-        Optional<Medal> medal = medalRepo.findBydescription(medalDescDTO.getDescription());
+    public Optional<Medal> addMedal(MedalNameDescDTO medalNameDescDTO){
+        Optional<Medal> medal = medalRepo.findByname(medalNameDescDTO.getName());
         if (medal.isPresent()) return Optional.empty();
-        return Optional.of(medalRepo.save(new Medal(medalDescDTO.getDescription())));
+        return Optional.of(medalRepo.save(new Medal(medalNameDescDTO.getName(),medalNameDescDTO.getDescription())));
     }
     @Override
     public Optional<List<Medal>> getAllMedals(){
@@ -47,6 +48,7 @@ public class MedalRepoImpl implements CustomMedalRepo {
        return Optional.of(medalRef);
 
     }
+
 
 
 }

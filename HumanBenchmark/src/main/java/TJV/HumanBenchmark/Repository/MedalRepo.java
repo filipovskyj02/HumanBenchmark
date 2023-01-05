@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface MedalRepo extends JpaRepository<Medal,Long>, CustomMedalRepo {
-    Optional<Medal> findBydescription(String description);
+    Optional<Medal> findByname(String name);
 }
