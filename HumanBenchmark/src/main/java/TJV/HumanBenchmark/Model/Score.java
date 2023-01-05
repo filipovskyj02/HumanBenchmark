@@ -1,7 +1,12 @@
 package TJV.HumanBenchmark.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -16,21 +21,19 @@ public class Score {
     @Column(name = "score")
     private int score;
     @Column(name = "date")
-    private LocalDateTime date;
+    private String date;
 
     @ManyToOne
-    @JoinColumn(name = "player_id_player",nullable = false,referencedColumnName = "id_player")
+    @JsonIgnore
 
     private Player player;
     @ManyToOne
-    @JoinColumn(name = "game_id_game",nullable = false,referencedColumnName = "id_game")
-
-
+    @JoinColumn(name = "game_id_game",referencedColumnName = "id_game")
     private Game game;
 
     public Score(int score,Player player,Game gem){
         this.score = score;
-        this.date = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+        this.date = "k";
 
         this.player = player;
         this.game = gem;
@@ -52,29 +55,23 @@ public class Score {
         this.score = score;
     }
 
-    public LocalDateTime getDate() {
-        return date;
-    }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
 
-    @NonNull
+
     public Player getPlayer() {
         return player;
     }
 
-    public void setPlayer(@NonNull Player player) {
+    public void setPlayer( Player player) {
         this.player = player;
     }
 
-    @NonNull
+
     public Game getGame() {
         return game;
     }
 
-    public void setGame(@NonNull Game game) {
+    public void setGame(Game game) {
         this.game = game;
     }
 

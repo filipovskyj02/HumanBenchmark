@@ -32,9 +32,9 @@ public class PlayerRepoImpl implements CustomPlayerRepo {
     }
 
     @Override
-    public boolean deletePlayer(PlayerDeleteDTO playerDeleteDTO){
-        if(playerRepo.existsById(playerDeleteDTO.getId()) == false) return false;
-        playerRepo.deleteById(playerDeleteDTO.getId());
+    public boolean deletePlayer(long id){
+        if(playerRepo.existsById(id) == false) return false;
+        playerRepo.deleteById(id);
         return true;
     }
     @Override

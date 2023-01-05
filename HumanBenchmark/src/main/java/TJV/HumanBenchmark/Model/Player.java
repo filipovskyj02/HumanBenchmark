@@ -1,7 +1,11 @@
 package TJV.HumanBenchmark.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,19 +34,29 @@ public class Player {
         this.id_player = id_player;
     }
 
+    @JsonIgnore
     @Nullable
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "player_id_player")
     private List<Score> scores = new ArrayList<Score>();
 
+    @JsonIgnore
     @Nullable
-    @ManyToMany
-    private List<Medal> medals = new ArrayList<Medal>();
+    @OnDelete(action = OnDeleteAction.CASCADE)
 
-    public List<Medal> getMedals() {
+    @OneToMany(mappedBy = "player",cascade = CascadeType.REMOVE)
+    private List<MedalPlayer> medals = new ArrayList<MedalPlayer>();
+
+    public void setScores(List<Score> scores) {
+        this.scores = scores;
+    }
+
+    public List<MedalPlayer> getMedals() {
         return medals;
     }
 
-    public void setMedals(List<Medal> medals) {
+    public void setMedals(List<MedalPlayer> medals) {
         this.medals = medals;
     }
 

@@ -1,7 +1,10 @@
 package TJV.HumanBenchmark.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +30,11 @@ public class Medal {
     @Column(name = "description",length = 4096)
     private String description;
 
-
+    @JsonIgnore
     @Nullable
-    @ManyToMany
-    private List<Player> players = new ArrayList<Player>();
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "medal",cascade = CascadeType.REMOVE)
+    private List<MedalPlayer> players = new ArrayList<MedalPlayer>();
 
     public Medal(){}
 
@@ -55,11 +59,11 @@ public class Medal {
         this.description = description;
     }
 
-    public List<Player> getPlayers() {
+    public List<MedalPlayer> getPlayers() {
         return players;
     }
 
-    public void setPlayers(List<Player> players) {
+    public void setPlayers(List<MedalPlayer> players) {
         this.players = players;
     }
 }

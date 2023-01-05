@@ -1,8 +1,11 @@
 package TJV.HumanBenchmark.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +22,11 @@ public class Game {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "scores", nullable = true)
-    @OneToMany
+    @Nullable
+    @OneToMany(cascade = CascadeType.REMOVE)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "player_id_player")
+    @JsonIgnore
     private List<Score> scores = new ArrayList<Score>();
 
 

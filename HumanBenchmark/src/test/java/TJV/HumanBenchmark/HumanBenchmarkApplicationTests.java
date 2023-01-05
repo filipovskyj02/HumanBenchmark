@@ -9,10 +9,6 @@ class HumanBenchmarkApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-	@Test
-	void testController(){
-		PlayerControllerTests playerControllerTests = new PlayerControllerTests();
-		playerControllerTests.testCreatePlayer();
-	}
+
 
 }

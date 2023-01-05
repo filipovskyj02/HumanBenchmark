@@ -1,6 +1,8 @@
 package TJV.HumanBenchmark.Model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.Serializable;
 
@@ -46,7 +48,7 @@ public class MaxScore {
         private Integer score;
 
         @ManyToOne
-        @JoinColumn(name="game_id_game", insertable=false, updatable=false)
+        @JoinColumn(name="player_id_player", insertable=false, updatable=false)
         private Game game;
 
         @ManyToOne

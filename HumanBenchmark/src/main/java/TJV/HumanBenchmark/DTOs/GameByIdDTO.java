@@ -11,4 +11,7 @@ public class GameByIdDTO {
         this.id_game = id_game;
     }
     public GameByIdDTO(){}
+
+    public void setId_game(long id_game) {
+    }
 }

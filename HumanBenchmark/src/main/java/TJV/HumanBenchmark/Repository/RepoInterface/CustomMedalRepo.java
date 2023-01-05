@@ -14,7 +14,7 @@ public interface CustomMedalRepo {
 
     Optional<List<Medal>> getAllMedals();
 
-    boolean deleteMedal(MedalIdDTO medalIdDTO);
+    boolean deleteMedal(long id);
 
     Optional<Medal> updateMedal(MedalIdDescDTO medalIdDescDTO);
 

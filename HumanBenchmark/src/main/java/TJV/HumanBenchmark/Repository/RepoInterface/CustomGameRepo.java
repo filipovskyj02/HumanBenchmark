@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface CustomGameRepo {
     Optional<Game> addGame(GameByNameDTO gameByNameDTO);
     Optional<List<Game>> getAllGames();
-    Boolean deleteGame(GameByIdDTO gameByIdDTO);
+    Boolean deleteGame(long id);
 
     Optional<Game> fixGameName(GameIdNameDTO gameIdNameDTO);
 }

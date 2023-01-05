@@ -16,7 +16,7 @@ public interface CustomPlayerRepo {
 
     Optional<Player> loginPlayer(PlayerLoginDTO loginDTO);
 
-    boolean deletePlayer(PlayerDeleteDTO playerDeleteDTO);
+    boolean deletePlayer(long id);
 
     Optional<Player> updatePlayer(Player player);
 }

@@ -263,12 +263,12 @@ if (username != null) {
             if (reactionTime < 0.4) medalsToAdd.push("Silver Medal");
             if (reactionTime < 0.275) medalsToAdd.push("Gold Medal");
             data = {id_game : 1};
-            const maxScoreResponse = await fetch("http://localhost:8080/score/globalmax", {
-            method: 'POST',
-            body: JSON.stringify(data),
+            const maxScoreResponse = await fetch(`http://localhost:8080/score/globalmax?gameId=1`, {
+             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
-            }})
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        }})
   
             const maxscore = await maxScoreResponse.json();
             if (maxscore <= (100/reactionTime)){

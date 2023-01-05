@@ -28,9 +28,9 @@ public class GameRepoImpl implements CustomGameRepo {
         else return Optional.of(gameRepo.findAll());
     }
     @Override
-    public Boolean deleteGame(GameByIdDTO gameByIdDTO){
-        if (!gameRepo.existsById(gameByIdDTO.getId_game())) return false;
-        gameRepo.deleteById(gameByIdDTO.getId_game());
+    public Boolean deleteGame(long id){
+        if (!gameRepo.existsById(id)) return false;
+        gameRepo.deleteById(id);
         return true;
 
     }

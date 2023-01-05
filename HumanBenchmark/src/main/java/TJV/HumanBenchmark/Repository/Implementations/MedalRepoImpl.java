@@ -31,10 +31,11 @@ public class MedalRepoImpl implements CustomMedalRepo {
 
     }
     @Override
-    public boolean deleteMedal(MedalIdDTO medalIdDTO){
-        Optional<Medal> medal = medalRepo.findById(medalIdDTO.getId_medal());
+    public boolean deleteMedal(long id){
+        Optional<Medal> medal = medalRepo.findById(id);
         if (medal.isEmpty()) return false;
-        medalRepo.deleteById(medalIdDTO.getId_medal());
+        medalRepo.deleteById(id);
+
         return true;
 
     }

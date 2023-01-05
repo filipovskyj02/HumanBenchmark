@@ -76,3 +76,19 @@ IPCClient ~ WindowHandler: New event is received { type: 'window-opened' }
 [19014:0105/002910.308091:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 1 times!
 [19014:0105/002912.888688:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 2 times!
 [19014:0105/002916.106765:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 3 times!
+1672894889617 main info "Quitting app"
+[18978:0105/060129.619486:ERROR:network_service_instance_impl.cc(978)] Network service crashed, restarting service.
+[18978:0105/060129.639530:ERROR:zygote_communication_linux.cc(276)] Failed to send GetTerminationStatus message to zygote
+[18978:0105/060129.645290:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[18978:0105/060129.647944:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[18978:0105/060129.649286:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[18978:0105/060129.650073:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[18978:0105/060129.650724:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[18978:0105/060129.651432:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[18978:0105/060129.652725:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[18978:0105/060129.653573:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[18978:0105/060129.654473:ERROR:gpu_process_host.cc(969)] GPU process launch failed: error_code=1002
+[18978:0105/060129.654524:FATAL:gpu_data_manager_impl_private.cc(447)] GPU process isn't usable. Goodbye.
+[0105/060129.663161:ERROR:elf_dynamic_array_reader.h(64)] tag not found
+[0105/060129.663388:ERROR:elf_dynamic_array_reader.h(64)] tag not found
+[0105/060129.663692:ERROR:elf_dynamic_array_reader.h(64)] tag not found
