@@ -45,9 +45,7 @@ public class PlayerController {
     //Data stored in body for safety reasons, therefore using POST
     @PostMapping("/register")
     public ResponseEntity registerPlayer(@RequestBody RegisterPlayerDTO registerPlayerDTO) throws URISyntaxException {
-        System.out.println(registerPlayerDTO.getPassword() + "OMHOMFGOMGOMOMGOMHOHMOH");
         Optional<Player> player = playerRepo.register(registerPlayerDTO);
-        System.out.println(player.get().getId_player());
         if (player.isEmpty()) return ResponseEntity.badRequest().body("Email already present !");
         return ResponseEntity.created(new URI("/player/" + player.get().getId_player())).build();
     }

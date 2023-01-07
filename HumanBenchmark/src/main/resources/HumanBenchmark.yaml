@@ -8,6 +8,39 @@ servers:
   - url: 'http://localhost:8080'
 paths:
   /game:
+    put:
+      summary: Update game name
+      operationId: fixGameName
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GameIdNameDTO'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Game not found
+      tags:
+        - Game
+
+    post:
+      summary: Add a new game
+      operationId: addGame
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GameByNameDTO'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Game already exists
+      tags:
+        - Game
     get:
       summary: Get all games
       operationId: getAllGames
@@ -59,38 +92,7 @@ paths:
           description: Game not found
       tags:
         - Game
-    put:
-      summary: Update game name
-      operationId: fixGameName
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GameIdNameDTO'
-      responses:
-        '200':
-          description: OK
-        '404':
-          description: Game not found
-      tags:
-        - Game
-    post:
-      summary: Add a new game
-      operationId: addGame
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GameByNameDTO'
-      responses:
-        '201':
-          description: Created
-        '400':
-          description: Game already exists
-      tags:
-        - Game
+
 
   /medal:
     get:
@@ -105,6 +107,26 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Medal'
+      tags:
+        - Medal
+    put:
+      summary: Update medal description
+      operationId: updateMedal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MedalIdDescDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Medal'
+        '404':
+          description: Medal not found
       tags:
         - Medal
     post:
@@ -172,24 +194,39 @@ paths:
           description: Medal not found
       tags:
         - Medal
-    put:
-      summary: Update medal description
-      operationId: updateMedal
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MedalIdDescDTO'
+  /player:
+    get:
+      summary: Get all players
+      operationId: getAllPlayers
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Medal'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+      tags:
+        - Player
+    put:
+      summary: Update player
+      operationId: updatePlayer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Player'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
         '404':
-          description: Medal not found
+          description: Player not found
       tags:
         - Player
   /player/{id}:
@@ -213,78 +250,7 @@ paths:
           description: Player not found
       tags:
         - Player
-  /player:
-    get:
-      summary: Get all players
-      operationId: getAllPlayers
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Player'
-      tags:
-        - Player
-  player/register:
-    post:
-      summary: Register a new player
-      operationId: registerPlayer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RegisterPlayerDTO'
-      responses:
-        '201':
-          description: Created
-        '400':
-          description: Email already exists
-      tags:
-        - Player
-  player/login:
-    post:
-      summary: Login a player
-      operationId: loginPlayer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PlayerLoginDTO'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PlayerLoginDTO'
-      tags:
-        - Player
-    put:
-      summary: Update player
-      operationId: updatePlayer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Player'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Player'
-        '404':
-          description: Player not found
-      tags:
-        - Player
-  player/{id}:
+
     delete:
       summary: Delete player by ID
       operationId: deletePlayer
@@ -308,6 +274,106 @@ paths:
           description: Player not found
       tags:
         - Player
+
+  /player/register:
+    post:
+      summary: Register a new player
+      operationId: registerPlayer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterPlayerDTO'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Email already exists
+      tags:
+        - Player
+  /player/login:
+    post:
+      summary: Login a player
+      operationId: loginPlayer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerLoginDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerLoginDTO'
+      tags:
+        - Player
+
+  /score:
+    get:
+      summary: Get all scores
+      operationId: getAllScores
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Score'
+      tags:
+        - Score
+    put:
+      summary: Update score
+      operationId: updateScore
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScoreDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScoreDTO'
+      tags:
+        - Score
+    post:
+      summary: Add score
+      operationId: addScore
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScoreDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '400':
+          description: Not present
+      tags:
+        - Score
   /score/{id}:
     get:
       summary: Get score by ID
@@ -352,69 +418,9 @@ paths:
           description: Score not found
       tags:
           - Score
-    put:
-      summary: Update score
-      operationId: updateScore
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ScoreDTO'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ScoreDTO'
-      tags:
-        - Score
-  /score:
-    get:
-      summary: Get all scores
-      operationId: getAllScores
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Score'
-      tags:
-        - Score
-    post:
-      summary: Add score
-      operationId: addScore
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ScoreDTO'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-        '400':
-          description: Not present
-      tags:
-        - Score
-  score/max:
+
+
+  /score/max:
     get:
       summary: Get max score for a player and game
       operationId: getMaxScore
@@ -438,7 +444,7 @@ paths:
                 $ref: '#/components/schemas/MaxScoreDTO'
       tags:
         - Score
-  /globalmax:
+  /score/globalmax:
     get:
       summary: Get global max score for a game
       operationId: getGlobalMaxScore
@@ -458,24 +464,7 @@ paths:
                     type: integer
       tags:
         - Score
-  /{id}:
-    delete:
-      summary: Deletes a score by its ID
-      operationId: deleteScore
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '204':
-          description: Score successfully deleted
-        '404':
-          description: Score not found
-      tags:
-        - Score
+
 
 
 
@@ -618,4 +607,6 @@ components:
         id_game:
           type: integer
           format: int64
+        name:
+            type: string
 
