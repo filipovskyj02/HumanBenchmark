@@ -46,8 +46,13 @@ public class MaxScore {
 
         @Column(name="score")
         private Integer score;
+    public MaxScore(){}
+    public MaxScore(Integer score, long gameId, long playerId) {
+        this.score = score;
+        this.setId_maxscore(new MaxScoreId(gameId,playerId));
+    }
 
-        @ManyToOne
+    @ManyToOne
         @JoinColumn(name="player_id_player", insertable=false, updatable=false)
         private Game game;
 

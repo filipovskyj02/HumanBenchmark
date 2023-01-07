@@ -11,8 +11,10 @@ import TJV.HumanBenchmark.Repository.MaxScoreRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+@Repository
 
 public class MaxScoreRepoImpl implements CustomMaxScoreRepo {
 

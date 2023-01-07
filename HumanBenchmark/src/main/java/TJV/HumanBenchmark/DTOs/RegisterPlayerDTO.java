@@ -1,6 +1,13 @@
 package TJV.HumanBenchmark.DTOs;
 
 public class RegisterPlayerDTO {
+    public RegisterPlayerDTO(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+    public RegisterPlayerDTO(){}
+
     private String name;
     private String email;
 

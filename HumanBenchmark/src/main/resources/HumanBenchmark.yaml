@@ -1,0 +1,621 @@
+
+openapi: 3.0.0
+info:
+  title: HumanBenchmark API
+  version: 1.0.0
+  description: API for HumanBenchmark
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  /game:
+    get:
+      summary: Get all games
+      operationId: getAllGames
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+      tags:
+          - Game
+  /game/{id}:
+    get:
+      summary: Get game by ID
+      operationId: getGameById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        '404':
+          description: Game not found
+      tags:
+        - Game
+    delete:
+      summary: Delete game by ID
+      operationId: deleteGame
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Game not found
+      tags:
+        - Game
+    put:
+      summary: Update game name
+      operationId: fixGameName
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GameIdNameDTO'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Game not found
+      tags:
+        - Game
+    post:
+      summary: Add a new game
+      operationId: addGame
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GameByNameDTO'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Game already exists
+      tags:
+        - Game
+
+  /medal:
+    get:
+      summary: Get all medals
+      operationId: getAll
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Medal'
+      tags:
+        - Medal
+    post:
+      summary: Add a new medal
+      operationId: addMedal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MedalNameDescDTO'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Medal already exists
+      tags:
+        - Medal
+  /medal/award:
+    post:
+      summary: Award a medal to a player
+      operationId: awardMedal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MedalAwardDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '400':
+          description: Invalid request
+      tags:
+        - Medal
+
+  /medal/{id}:
+    delete:
+      summary: Delete medal by ID
+      operationId: deleteMedal
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Medal not found
+      tags:
+        - Medal
+    put:
+      summary: Update medal description
+      operationId: updateMedal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MedalIdDescDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Medal'
+        '404':
+          description: Medal not found
+      tags:
+        - Player
+  /player/{id}:
+    get:
+      summary: Get player by ID
+      operationId: getPlayerById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+        '404':
+          description: Player not found
+      tags:
+        - Player
+  /player:
+    get:
+      summary: Get all players
+      operationId: getAllPlayers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+      tags:
+        - Player
+  player/register:
+    post:
+      summary: Register a new player
+      operationId: registerPlayer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterPlayerDTO'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Email already exists
+      tags:
+        - Player
+  player/login:
+    post:
+      summary: Login a player
+      operationId: loginPlayer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerLoginDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerLoginDTO'
+      tags:
+        - Player
+    put:
+      summary: Update player
+      operationId: updatePlayer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Player'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+        '404':
+          description: Player not found
+      tags:
+        - Player
+  player/{id}:
+    delete:
+      summary: Delete player by ID
+      operationId: deletePlayer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Player not found
+      tags:
+        - Player
+  /score/{id}:
+    get:
+      summary: Get score by ID
+      operationId: getScore
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Score'
+        '404':
+          description: Score not found
+      tags:
+        - Score
+    delete:
+      summary: Delete score by ID
+      operationId: deleteScore
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Score not found
+      tags:
+          - Score
+    put:
+      summary: Update score
+      operationId: updateScore
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScoreDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScoreDTO'
+      tags:
+        - Score
+  /score:
+    get:
+      summary: Get all scores
+      operationId: getAllScores
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Score'
+      tags:
+        - Score
+    post:
+      summary: Add score
+      operationId: addScore
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScoreDTO'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '400':
+          description: Not present
+      tags:
+        - Score
+  score/max:
+    get:
+      summary: Get max score for a player and game
+      operationId: getMaxScore
+      parameters:
+        - name: playerId
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: gameId
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxScoreDTO'
+      tags:
+        - Score
+  /globalmax:
+    get:
+      summary: Get global max score for a game
+      operationId: getGlobalMaxScore
+      parameters:
+        - name: gameId
+          in: query
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  globalmax:
+                    type: integer
+      tags:
+        - Score
+  /{id}:
+    delete:
+      summary: Deletes a score by its ID
+      operationId: deleteScore
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Score successfully deleted
+        '404':
+          description: Score not found
+      tags:
+        - Score
+
+
+
+components:
+  schemas:
+    MaxScoreDTO:
+      type: object
+      properties:
+        playerId:
+          type: integer
+          format: int64
+          description: ID of the player
+        gameId:
+          type: integer
+          format: int64
+          description: ID of the game
+      required:
+        - playerId
+        - gameId
+    Score:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the score
+        playerId:
+          type: integer
+          format: int64
+          description: ID of the player
+        gameId:
+          type: integer
+          format: int64
+          description: ID of the game
+        score:
+          type: integer
+          format: int32
+          description: Score achieved by the player in the game
+      required:
+        - id
+        - playerId
+        - gameId
+        - score
+    ScoreDTO:
+      type: object
+      properties:
+        playerId:
+          type: integer
+          format: int64
+          description: ID of the player
+        gameId:
+          type: integer
+          format: int64
+          description: ID of the game
+        score:
+          type: integer
+          format: int32
+          description: Score achieved by the player in the game
+      required:
+        - playerId
+        - gameId
+        - score
+    Player:
+      type: object
+      properties:
+        id_player:
+          type: integer
+          format: int64
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    RegisterPlayerDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    PlayerLoginDTO:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    Medal:
+      type: object
+      properties:
+        id_medal:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+    MedalNameDescDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    MedalAwardDTO:
+      type: object
+      properties:
+        id_player:
+          type: integer
+          format: int64
+        id_medal:
+          type: integer
+          format: int64
+    MedalIdDescDTO:
+      type: object
+      properties:
+        id_medal:
+          type: integer
+          format: int64
+        description:
+          type: string
+    Game:
+      type: object
+      properties:
+        id_game:
+          type: integer
+        name:
+          type: string
+    GameByNameDTO:
+      type: object
+      properties:
+        name:
+          type: string
+    GameIdNameDTO:
+      type: object
+      properties:
+        id_game:
+          type: integer
+          format: int64
+

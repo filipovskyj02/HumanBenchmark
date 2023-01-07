@@ -20,7 +20,8 @@ public class GameIdNameDTO {
         this.name = name;
     }
 
-    public GameIdNameDTO(String name) {
+    public GameIdNameDTO(long id_game,String name) {
+        this.id_game = id_game;
         this.name = name;
     }
     public GameIdNameDTO(){}

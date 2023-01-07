@@ -8,8 +8,10 @@ import TJV.HumanBenchmark.Repository.RepoInterface.CustomPlayerRepo;
 import TJV.HumanBenchmark.Repository.PlayerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+@Repository
 
 public class PlayerRepoImpl implements CustomPlayerRepo {
     @Autowired

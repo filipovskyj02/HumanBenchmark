@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +23,7 @@ import java.util.Optional;
 @RequestMapping("/player")
 public class PlayerController {
     private final PlayerRepo playerRepo;
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+
 
     public PlayerController(PlayerRepo playerRepo) {
         this.playerRepo = playerRepo;
@@ -43,10 +44,12 @@ public class PlayerController {
 
     //Data stored in body for safety reasons, therefore using POST
     @PostMapping("/register")
-    public ResponseEntity registerPlayer(@RequestBody RegisterPlayerDTO registerPlayerDTO) {
+    public ResponseEntity registerPlayer(@RequestBody RegisterPlayerDTO registerPlayerDTO) throws URISyntaxException {
+        System.out.println(registerPlayerDTO.getPassword() + "OMHOMFGOMGOMOMGOMHOHMOH");
         Optional<Player> player = playerRepo.register(registerPlayerDTO);
+        System.out.println(player.get().getId_player());
         if (player.isEmpty()) return ResponseEntity.badRequest().body("Email already present !");
-        return ResponseEntity.ok().body(player.get());
+        return ResponseEntity.created(new URI("/player/" + player.get().getId_player())).build();
     }
     //Data stored in body for safety reasons, therefore using POST
     @PostMapping("/login")
@@ -54,7 +57,7 @@ public class PlayerController {
         Optional<Player> player = playerRepo.loginPlayer(loginDTO);
         if (player.isEmpty()) return ResponseEntity.notFound().build();
         OutPlayerLoginDTO res = new OutPlayerLoginDTO(player.get().getId_player(),player.get().getName());
-        return ResponseEntity.ok().body(res);
+        return ResponseEntity.ok(res);
     }
 
     @PutMapping
