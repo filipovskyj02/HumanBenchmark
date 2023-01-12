@@ -1,19 +1,15 @@
 package TJV.HumanBenchmark.Repository.Implementations;
 
-import TJV.HumanBenchmark.DTOs.GameDTO;
+
 import TJV.HumanBenchmark.DTOs.MaxScoreDTO;
-import TJV.HumanBenchmark.Model.Game;
 import TJV.HumanBenchmark.Model.MaxScore;
-import TJV.HumanBenchmark.Model.Player;
-import TJV.HumanBenchmark.Model.Score;
 import TJV.HumanBenchmark.Repository.RepoInterface.CustomMaxScoreRepo;
 import TJV.HumanBenchmark.Repository.MaxScoreRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 @Repository
 
 public class MaxScoreRepoImpl implements CustomMaxScoreRepo {

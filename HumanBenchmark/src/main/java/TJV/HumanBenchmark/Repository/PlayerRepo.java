@@ -1,6 +1,5 @@
 package TJV.HumanBenchmark.Repository;
 
-import TJV.HumanBenchmark.Model.Game;
 import TJV.HumanBenchmark.Model.Player;
 import TJV.HumanBenchmark.Repository.RepoInterface.CustomPlayerRepo;
 import org.springframework.context.annotation.Primary;

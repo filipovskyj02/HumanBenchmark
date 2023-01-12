@@ -1,20 +1,13 @@
 package TJV.HumanBenchmark.Controllers;
 
 import TJV.HumanBenchmark.DTOs.MedalAwardDTO;
-import TJV.HumanBenchmark.DTOs.MedalIdDTO;
 import TJV.HumanBenchmark.DTOs.MedalIdDescDTO;
 import TJV.HumanBenchmark.DTOs.MedalNameDescDTO;
 import TJV.HumanBenchmark.Model.Medal;
 import TJV.HumanBenchmark.Repository.MedalRepo;
 import TJV.HumanBenchmark.Services.MedalService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jdbc.repository.query.Modifying;
-import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;

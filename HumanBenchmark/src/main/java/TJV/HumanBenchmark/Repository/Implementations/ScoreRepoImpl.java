@@ -4,7 +4,7 @@ import TJV.HumanBenchmark.DTOs.ScoreDTO;
 import TJV.HumanBenchmark.Model.Score;
 import TJV.HumanBenchmark.Repository.*;
 import TJV.HumanBenchmark.Repository.RepoInterface.CustomScoreRepo;
-import TJV.HumanBenchmark.Services.AddScoreService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;

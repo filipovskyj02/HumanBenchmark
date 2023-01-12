@@ -1,7 +1,7 @@
 package TJV.HumanBenchmark.Services;
 
 import TJV.HumanBenchmark.DTOs.MedalAwardDTO;
-import TJV.HumanBenchmark.DTOs.MedalIdDescDTO;
+
 import TJV.HumanBenchmark.Model.Medal;
 import TJV.HumanBenchmark.Model.MedalPlayer;
 import TJV.HumanBenchmark.Model.Player;
@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+
 import java.util.Optional;
 @Service
 public class MedalService {
@@ -45,8 +45,6 @@ public class MedalService {
         medalRepo.save(medal.get());
 
         return 1;
-
-
 
 
 

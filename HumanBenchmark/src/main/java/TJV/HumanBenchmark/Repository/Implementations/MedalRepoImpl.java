@@ -1,7 +1,6 @@
 package TJV.HumanBenchmark.Repository.Implementations;
 
-import TJV.HumanBenchmark.DTOs.MedalAwardDTO;
-import TJV.HumanBenchmark.DTOs.MedalIdDTO;
+
 import TJV.HumanBenchmark.DTOs.MedalIdDescDTO;
 import TJV.HumanBenchmark.DTOs.MedalNameDescDTO;
 import TJV.HumanBenchmark.Model.Medal;

@@ -1,11 +1,9 @@
 package TJV.HumanBenchmark.Controllers;
 
-import TJV.HumanBenchmark.DTOs.GameByIdDTO;
 import TJV.HumanBenchmark.DTOs.GameByNameDTO;
 import TJV.HumanBenchmark.DTOs.GameIdNameDTO;
 import TJV.HumanBenchmark.Model.Game;
 import TJV.HumanBenchmark.Repository.GameRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +24,6 @@ public class GameController {
 
     @GetMapping
     public ResponseEntity getAllGames(){
-        System.out.println("SADasdasdkjdjsadsajashdjhdjahsjdhjas");
         Optional<List<Game>> games = gameRepo.getAllGames();
         if (games.isEmpty())  return ResponseEntity.ok("No games present!");
         return ResponseEntity.ok(games.get());

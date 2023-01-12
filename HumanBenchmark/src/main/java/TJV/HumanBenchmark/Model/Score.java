@@ -1,15 +1,11 @@
 package TJV.HumanBenchmark.Model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
+
 
 @Entity
 @Table(name = "scores")
@@ -25,15 +21,15 @@ public class Score {
 
     @ManyToOne
     @JsonIgnore
-
+    @JoinColumn(name = "player_id_player",referencedColumnName = "id_player",updatable = false)
     private Player player;
     @ManyToOne
-    @JoinColumn(name = "game_id_game",referencedColumnName = "id_game")
+    @JoinColumn(name = "game_id_game",referencedColumnName = "id_game",updatable = false)
     private Game game;
 
     public Score(int score,Player player,Game gem){
         this.score = score;
-        this.date = "k";
+        this.date = LocalDateTime.now().toString();
 
         this.player = player;
         this.game = gem;

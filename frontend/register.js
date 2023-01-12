@@ -120,7 +120,6 @@ function toggleFormVisibility(form) {
     .catch(error => {
       document.getElementById("message").classList.add('error');
       document.getElementById("message").innerHTML = 'Email already present';
-      
       console.error('Error:', error);
     });
   }

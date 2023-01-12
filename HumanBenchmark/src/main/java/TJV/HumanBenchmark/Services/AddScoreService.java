@@ -13,10 +13,10 @@ import TJV.HumanBenchmark.Repository.PlayerRepo;
 import TJV.HumanBenchmark.Repository.ScoreRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+
 @Service
 public class AddScoreService {
     @Autowired
@@ -37,11 +37,10 @@ public class AddScoreService {
         Player player = playerRepo.getReferenceById(scoreDTO.getId_player());
         Game game = gameRepo.getReferenceById(scoreDTO.getId_game());
         Score newScore = new Score(scoreDTO.getScore(),player,game);
+        newScore.setPlayer(player);
         scoreRepo.save(newScore);
-        player.addScore(newScore);
         checkAndUpdateMax(scoreDTO);
-        game.addScore(newScore);
-        gameRepo.flush();
+
         return true;
 
     }

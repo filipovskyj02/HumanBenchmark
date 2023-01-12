@@ -6,11 +6,12 @@ public class ScoreDTO {
     private long id_game;
     private int score;
 
-    public ScoreDTO(long id_player, long id_game, int score) {
+    public ScoreDTO(long id_game,long id_player, int score) {
         this.id_player = id_player;
         this.id_game = id_game;
         this.score = score;
     }
+    public ScoreDTO(){}
 
 
     public long getId_player() {

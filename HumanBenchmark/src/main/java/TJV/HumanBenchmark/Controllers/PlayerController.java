@@ -1,17 +1,13 @@
 package TJV.HumanBenchmark.Controllers;
 
 import TJV.HumanBenchmark.DTOs.OutPlayerLoginDTO;
-import TJV.HumanBenchmark.DTOs.PlayerDeleteDTO;
+
 import TJV.HumanBenchmark.DTOs.PlayerLoginDTO;
 import TJV.HumanBenchmark.DTOs.RegisterPlayerDTO;
-import TJV.HumanBenchmark.Model.Game;
 import TJV.HumanBenchmark.Model.Player;
 import TJV.HumanBenchmark.Repository.PlayerRepo;
-import jakarta.transaction.Transactional;
-import org.apache.juli.logging.Log;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -47,7 +43,7 @@ public class PlayerController {
     public ResponseEntity registerPlayer(@RequestBody RegisterPlayerDTO registerPlayerDTO) throws URISyntaxException {
         Optional<Player> player = playerRepo.register(registerPlayerDTO);
         if (player.isEmpty()) return ResponseEntity.badRequest().body("Email already present !");
-        return ResponseEntity.created(new URI("/player/" + player.get().getId_player())).build();
+        return ResponseEntity.created(new URI("/player/" + player.get().getId_player())).body(new OutPlayerLoginDTO(player.get().getId_player(), player.get().getName()));
     }
     //Data stored in body for safety reasons, therefore using POST
     @PostMapping("/login")

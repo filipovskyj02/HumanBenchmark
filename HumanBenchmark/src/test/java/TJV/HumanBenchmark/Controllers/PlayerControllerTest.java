@@ -3,10 +3,8 @@ package TJV.HumanBenchmark.Controllers;
 import TJV.HumanBenchmark.DTOs.RegisterPlayerDTO;
 import TJV.HumanBenchmark.Model.Player;
 import TJV.HumanBenchmark.Repository.PlayerRepo;
-import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -21,7 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
+
 
 @WebMvcTest(PlayerController.class)
 @RunWith(SpringRunner.class)

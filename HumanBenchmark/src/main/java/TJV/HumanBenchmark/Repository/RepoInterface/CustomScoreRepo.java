@@ -2,7 +2,6 @@ package TJV.HumanBenchmark.Repository.RepoInterface;
 
 import TJV.HumanBenchmark.DTOs.ScoreDTO;
 import TJV.HumanBenchmark.Model.Score;
-import org.springframework.http.ResponseEntity;
 
 import java.util.Optional;
 

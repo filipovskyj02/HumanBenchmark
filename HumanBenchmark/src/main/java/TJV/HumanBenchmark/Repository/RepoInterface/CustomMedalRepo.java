@@ -2,7 +2,6 @@ package TJV.HumanBenchmark.Repository.RepoInterface;
 
 import TJV.HumanBenchmark.DTOs.*;
 import TJV.HumanBenchmark.Model.Medal;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.Optional;
