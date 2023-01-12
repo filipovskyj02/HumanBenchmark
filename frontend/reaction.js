@@ -240,7 +240,7 @@ if (username != null) {
             },
             {
               name: "Perfect Streak",
-              description: "Awarded for achieving a certain number of consecutive perfect scores on the game."
+              description: "Awared for having the most games played"
             }
           ];
 
@@ -270,9 +270,20 @@ if (username != null) {
             'Access-Control-Allow-Origin': '*'
         }})
   
+          const idMostPlayed = await fetch(`http://localhost:8080/score/mostplayed`, {
+         method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+        }})
+  
             const maxscore = await maxScoreResponse.json();
             if (maxscore <= (100/reactionTime)){
               medalsToAdd.push("Fastest Reaction Time");
+            }
+            const mostPlayedResponse = await idMostPlayed.json();
+            if (mostPlayedResponse == getCookie("id_player")){
+              medalsToAdd.push("Perfect Streak");
             }
             for (const medal of medalsToAdd){
               console.log(medal);
