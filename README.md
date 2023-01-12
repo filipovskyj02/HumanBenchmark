@@ -52,6 +52,10 @@ Select the user with the most played games / with the highest amount of medals
 
 <img width=30% height=30% src="./images/medals.png">
 
+5) Documentation is available at HumanBenchmark/src/main/resources/HumanBenchmark.yaml
+
+<img width=800% height=*00% src="./images/doc.png">
+
 
 
 
