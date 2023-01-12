@@ -511,11 +511,11 @@ components:
     ScoreDTO:
       type: object
       properties:
-        playerId:
+        id_player:
           type: integer
           format: int64
           description: ID of the player
-        gameId:
+        id_game:
           type: integer
           format: int64
           description: ID of the game
@@ -578,9 +578,8 @@ components:
         id_player:
           type: integer
           format: int64
-        id_medal:
-          type: integer
-          format: int64
+        name:
+          type: string
     MedalIdDescDTO:
       type: object
       properties:
