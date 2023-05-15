@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -12,6 +14,8 @@ import java.util.List;
 import java.util.TreeSet;
 
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name = "players")
 public class Player {
     @Id
@@ -24,15 +28,6 @@ public class Player {
     private String email;
     @Column(name = "password")
     private String password;
-
-
-    public long getId_player() {
-        return id_player;
-    }
-
-    public void setId_player(long id_player) {
-        this.id_player = id_player;
-    }
 
     @JsonIgnore
     @Nullable
@@ -48,58 +43,10 @@ public class Player {
     @OneToMany(mappedBy = "player",cascade = CascadeType.REMOVE)
     private List<MedalPlayer> medals = new ArrayList<MedalPlayer>();
 
-    public void setScores(List<Score> scores) {
-        this.scores = scores;
-    }
-
-    public List<MedalPlayer> getMedals() {
-        return medals;
-    }
-
-    public void setMedals(List<MedalPlayer> medals) {
-        this.medals = medals;
-    }
-
     public Player(String name, String email, String password){
         this.name = name;
         this.email = email;
         this.password = password;
     }
 
-    public List<Score> getScores() {
-        return this.scores;
-    }
-
-    public void addScore(Score score) {
-        this.scores.add(score);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-    public Player() {}
 }

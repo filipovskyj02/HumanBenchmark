@@ -1,17 +1,12 @@
 package TJV.HumanBenchmark.DTOs;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
 public class GameByNameDTO {
-    private String name;
-    public String getName() {
-        return name;
-    }
-
-    public GameByNameDTO(String name) {
-        this.name = name;
-    }
-    public GameByNameDTO(){}
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    String name;
 }

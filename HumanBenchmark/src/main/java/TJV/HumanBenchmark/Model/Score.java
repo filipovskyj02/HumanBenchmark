@@ -3,11 +3,18 @@ package TJV.HumanBenchmark.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
 @Table(name = "scores")
 public class Score {
     @Id
@@ -30,46 +37,8 @@ public class Score {
     public Score(int score,Player player,Game gem){
         this.score = score;
         this.date = LocalDateTime.now().toString();
-
         this.player = player;
         this.game = gem;
     }
 
-    public long getId_score() {
-        return id_score;
-    }
-
-    public void setId_score(long id_score) {
-        this.id_score = id_score;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-
-
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer( Player player) {
-        this.player = player;
-    }
-
-
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    public Score(){}
 }

@@ -1,10 +1,12 @@
 package TJV.HumanBenchmark.Model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
+@Data
 public class MedalPlayer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,20 +22,6 @@ public class MedalPlayer {
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     private Player player;
 
-    public Medal getMedal() {
-        return medal;
-    }
 
-    public void setMedal(Medal medal) {
-        this.medal = medal;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
 }
 

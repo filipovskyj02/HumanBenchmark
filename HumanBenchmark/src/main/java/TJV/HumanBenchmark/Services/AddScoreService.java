@@ -76,6 +76,7 @@ public class AddScoreService {
             if (maxScore.getId_maxscore().getId_game() == gameByIdDTO.getId_game() && maxScore.getScore() > max)
                 max = maxScore.getScore();
         }
+
         return max;
 
         }

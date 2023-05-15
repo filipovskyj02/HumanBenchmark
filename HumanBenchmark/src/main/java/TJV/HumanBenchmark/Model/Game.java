@@ -4,16 +4,21 @@ package TJV.HumanBenchmark.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "games")
 public class Game {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -28,30 +33,8 @@ public class Game {
     @JoinColumn(name = "player_id_player")
     @JsonIgnore
     private List<Score> scores = new ArrayList<Score>();
-
-
-    public long getId_game() {
-        return id_game;
+    public Game(String str){
+        this.name = str;
     }
-    public void addScore(Score score) {
-        this.scores.add(score);
-    }
-
-    public void setId_game(long id_game) {
-        this.id_game = id_game;
-    }
-
-    public Game(String name){
-        this.name = name;
-    }
-    public Game(){}
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 
 }
