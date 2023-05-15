@@ -7,6 +7,7 @@
   width: 100%;
   justify-content: flex-end;
   border-bottom: 1px solid white;
+  background-color: #303131;
   }
   
   .navbar a {
@@ -15,7 +16,7 @@
     display: inline-block;
     text-align: center;
     padding: 12px;
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 17px;
   
@@ -81,7 +82,7 @@ h2 {
 
   
   .container {
-
+    background-color: #303131;
     align-items: center;
     justify-content: center;
     text-align: center;
